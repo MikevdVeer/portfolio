@@ -4,199 +4,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mike vd Veer - Full-Stack Developer & UI/UX Designer Portfolio">
+    <meta property="og:title" content="Mike vd Veer - Portfolio">
+    <meta property="og:description" content="Full-Stack Developer & UI/UX Designer Portfolio">
+    <meta property="og:image" content="assets/profile_foto.jpg">
+    <meta property="og:url" content="https://mikevdveer.github.io/portfolio/">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Mike vd Veer - portfolio</title>
+    <title>Mike vd Veer - Full-Stack Developer & UI/UX Designer</title>
+    <style>
+        .nav-link.active {
+            color: #fff !important;
+            font-weight: bold;
+        }
+        .card {
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 1000;
+        }
+        .skill-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container-fluid bg-dark position-sticky top-0 z-1">
-        <header class="d-flex flex-wrap align-items-center gap-2 justify-content-center py-3">
-            <a href="/" class="d-flex align-items-center me-md-auto text-decoration-none">
-                <h3 class="text-white">Mike vd Veer</h3>
-            </a>
+<body class="bg-light">
+    <a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">Mike vd Veer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#myProjects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#about" class="nav-link text-white" data-bs-toggle="off">About Me</a></li>
-                <li class="nav-item"><a href="#myProjects" class="nav-link text-white" data-bs-toggle="off">Projects</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link text-white" data-bs-toggle="off">Contact</a></li>
-            </ul>
-        </header>
-    </div>
-    <main class="h-100" style="background: linear-gradient(to bottom, #181a66, #292eb6, #562ee7, #6f4bff);">
-        <div class="container-fluid p-3 vh-100" id="about">
-            <div class="row d-flex justify-content-center align-items-center h-100" data-aos="fade-up">
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                    <div class="text-center">
-                        <img class="rounded img-fluid shadow-lg" src="assests/profile_foto.jpg" alt="image">
+    <main id="main-content" class="bg-light">
+        <section id="about" class="py-5 position-relative overflow-hidden">
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #1565c0 100%);">
+                <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            </div>
+            <div class="container py-5 position-relative">
+                <div class="row align-items-center" data-aos="fade-up">
+                    <div class="col-12 col-md-4 mb-4 mb-md-0">
+                        <div class="text-center">
+                            <img class="rounded-circle img-fluid shadow-lg" style="max-width: 300px;" src="assets/profile_foto.jpg" alt="Mike vd Veer - Professional headshot">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="bg-white bg-opacity-10 p-4 rounded-3 backdrop-blur">
+                            <h2 class="text-white mb-4">About Me</h2>
+                            <p class="text-white lead mb-0">I am a social, creative, and motivated student who excels at collaboration. I have a strong passion for software development and excellent visualization skills.</p>
+                            <p class="text-white mt-3 mb-0">Hobbies: Music listening, Piano playing, Programming, Hanging out with friends, Reading books.</p>
+                            <div class="mt-4">
+                                <a href="path-to-your-cv.pdf" class="btn btn-light" download>
+                                    <i class="bi bi-download me-2"></i>Download CV
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Skills & Technologies</h2>
+                <div class="row">
+                    <div class="col-12 col-md-4 mb-4">
+                        <h3 class="h4 mb-3">Frontend</h3>
+                        <div class="skill-badge">HTML5</div>
+                        <div class="skill-badge">CSS3</div>
+                        <div class="skill-badge">JavaScript</div>
+                        <div class="skill-badge">Bootstrap</div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <h3 class="h4 mb-3">Backend</h3>
+                        <div class="skill-badge">PHP</div>
+                        <div class="skill-badge">Node.js</div>
+                        <div class="skill-badge">Express</div>
+                        <div class="skill-badge">SQL</div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <h3 class="h4 mb-3">Tools & Others</h3>
+                        <div class="skill-badge">Git</div>
+                        <div class="skill-badge">UI/UX Design</div>
+                        <div class="skill-badge">Responsive Design</div>
+                        <div class="skill-badge">Problem Solving</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="myProjects" class="py-5 position-relative">
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);">
+                <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%239C92AC\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');"></div>
+            </div>
+            <div class="container position-relative">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" id="projectSearch" placeholder="Search projects by name, technology, or description..." aria-label="Search projects">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-5" data-aos="fade-bottom">
+                    <div class="col-12">
+                        <h3 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">Projects - Year 1</h3>
+                    </div>
+                    <div class="col-12 col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="assets/Hoger_lager.png" alt="Higher or Lower" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">Higher or Lower</h5>
+                                <p class="text-center text-muted small">HTML5, CSS3, JavaScript</p>
+                                <p class="card-text flex-grow-1">Dice game: <b>Higher or Lower</b> focused on probability calculation, where you predict if you'll roll higher or lower than the computer. This was our first project in period 1.</p>
+                                <div class="text-center">
+                                    <a href="https://mikevdveer.github.io/mikevdveer_hoger-of-lager/" class="btn btn-primary">Visit Now!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="assets/Minigames.PNG" alt="Minigames" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">Minigames</h5>
+                                <p class="text-center text-muted small">HTML5, CSS3, JavaScript</p>
+                                <p class="card-text flex-grow-1">This project started in period 2 and required three different minigames: <span><b>Tic-tac-toe / Whack-a-mole / Battleship</b></span>. I worked on the front page and the Tic-tac-toe game.<br><br> Overall, a fun project.</p>
+                                <div class="text-center">
+                                    <a href="https://mikevdveer.github.io/Minigames/" class="btn btn-primary">Visit Now!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="assets/Playlist.PNG" alt="Playlist" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">Playlist</h5>
+                                <p class="text-center text-muted small">HTML5 & CSS3</p>
+                                <p class="card-text flex-grow-1">This was a lesson assignment about position-sticky. I took the initiative to research and implement flexbox in this playlist. I was already ahead of the curve in terms of HTML and CSS.</p>
+                                <div class="text-center">
+                                    <a href="https://rocmondriaantin.github.io/Playlist/" class="btn btn-primary">Visit Now!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="assets/Netfixed(old).png" alt="Netfixed (old)" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">Netfixed (old)</h5>
+                                <p class="text-center text-muted small">HTML5, CSS3, JavaScript</p>
+                                <p class="card-text flex-grow-1">This project started in period 3. We received an extra assignment from our JavaScript teacher, Bouchtaoui, who has essential tremor. He gave us the idea to create a movie platform.</p>
+                                <div class="alert alert-warning mb-3">
+                                    <p class="mb-0">Some links and images may not work.</p>
+                                    <p class="mb-0">Advertisements may be present!</p>
+                                </div>
+                                <div class="text-center">
+                                    <a href="https://mikevdveer.github.io/Netfixed/" class="btn btn-primary">Visit Now!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5" data-aos="fade-bottom">
+                    <div class="col-12 col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="assets/Netfixed 2.0.png" alt="Netfixed 2.0" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">Netfixed 2.0</h5>
+                                <p class="text-center text-muted small">HTML5, CSS3, JavaScript & Express / Node.js</p>
+                                <p class="card-text flex-grow-1">This project started in my final period: 4. This is one of my favorite projects I've created.</p>
+                                <div class="alert alert-danger mb-2">
+                                    <p class="mb-0"><b>Instructions for starting express server for full experience</b></p>
+                                </div>
+                                <div class="alert alert-info mb-3">
+                                    <p class="mb-0"><b>Step 1: Open terminal<br>Step 2: cd server<br>Step 3: npm install<br>Final step: node index.js</b></p>
+                                </div>
+                                <div class="alert alert-warning mb-3">
+                                    <p class="mb-0">Some links and images may not work.</p>
+                                    <p class="mb-0">Advertisements may be present!</p>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-primary">Visit Now!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="assets/Smick.png" alt="Smick" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">Smick (Game Categories)</h5>
+                                <p class="text-center text-muted small">HTML5, CSS3, JavaScript & Node.js</p>
+                                <p class="card-text flex-grow-1">This project started in period 3. This is my most favorite project from year 1. I'm very proud of this one.</p>
+                                <div class="alert alert-danger mb-2">
+                                    <p class="mb-0"><b>Instructions for starting express server for full experience</b></p>
+                                </div>
+                                <div class="alert alert-info mb-3">
+                                    <p class="mb-0"><b>Step 1: Open terminal<br>Step 2: cd server<br>Step 3: npm install<br>Final step: node index.js</b></p>
+                                </div>
+                                <div class="text-center">
+                                    <a href="https://mikevdveer.github.io/p03-project-smick/public/" class="btn btn-primary">Visit Now!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" data-aos="fade-bottom">
+                    <div class="col-12">
+                        <h3 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">Projects - Year 2</h3>
+                    </div>
+                    <div class="col-12 col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="assets/Netfixed Database Project.png" alt="Netfixed Database Project" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">Netfixed Database Project</h5>
+                                <p class="text-center text-muted small">HTML5, CSS3, Bootstrap, PHP & SQL</p>
+                                <p class="card-text flex-grow-1">One of my favorite projects I've created.</p>
+                                <div class="alert alert-danger mb-2">
+                                    <p class="mb-0"><b>Guidance for full experience (XAMPP)</b></p>
+                                </div>
+                                <div class="alert alert-info mb-3">
+                                    <p class="mb-0"><b>1. Install XAMPP 8.2.12 from: https://www.apachefriends.org/download.html</b><br>2. Open XAMPP: Start Apache & MySQL<br>3. Click on SQL admin to open phpMyAdmin<br>4. Import the file (dbp_data.sql) from the assets folder<br>5. GitHub repo: https://github.com/MikevdVeer/Netfixed_Database_Project_MikevdVeer</p>
+                                </div>
+                                <div class="text-center">
+                                    <a href="https://mikevdveer.github.io/Netfixed_Database_Project_MikevdVeer/" class="btn btn-primary">Visit Now!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">Pizza La Vita Project<br> (coming soon)</h5>
+                                <p class="text-center text-muted small">HTML5, CSS3, Bootstrap, PHP & SQL, Symfony</p>
+                                <div class="text-center mt-auto">
+                                    <button class="btn btn-primary">Coming Soon!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4 mb-md-0">
+                    <h3 class="mb-3">Mike vd Veer</h3>
+                    <p class="mb-1">Full-Stack Developer | UI/UX Designer</p>
+                    <p class="mb-1"><i class="bi bi-envelope-at"></i> mikeveer@live.nl</p>
+                    <p class="small mb-0"><i class="bi bi-geo-alt"></i> Netherlands - The Hague</p>
+                </div>
+                <div class="col-12 col-md-4 mb-4 mb-md-0">
+                    <div class="d-flex justify-content-center gap-3">
+                        <a class="text-white fs-3" href="https://github.com/MikevdVeer" aria-label="GitHub Profile"><i class="bi bi-github"></i></a>
+                        <a class="text-white fs-3" href="www.linkedin.com/in/mike-veer-72b65b2a9" aria-label="LinkedIn Profile"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="mx-auto">
-                        <p class="text-white">Ik ben een sociale, creatieve en gemotiveerde student die goed kan samenwerken. Ik heb veel passie voor software development en kan goed visualiseren. <br><br>Mijn hobbies: Muziek luisteren, Piano spelen, Programmeren, chillen met vrienden, boeken lezen.</p>
-                    </div>
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="name" class="form-label visually-hidden">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required aria-label="Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label visually-hidden">Your Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required aria-label="Your Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label visually-hidden">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required aria-label="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label visually-hidden">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Your Message" required aria-label="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
-
-        <div class="container-fluid p-5" id="myProjects">
-            <div class="row mb-5" data-aos="fade-bottom">
-                <h3 class="bg-white rounded p-3 container-fluid mb-3">Project - Leerjaar 1</h3>
-                <div class="col-12 col-md-3 mb-4">
-                    <div class="card">
-                        <div><img src="assests/Hoger_lager.png" alt="Image" class="img-fluid w-100 rounded p-1" style="object-fit: cover; height: 300px;"></div>
-                        <div>
-                            <h5 class="card-title text-center fs-4">Hoger of Lager</h5>
-                            <p class="text-center small">Html5, CSS3, Javascript</p>
-                            <p class="text-center mt-2">Dobbel spel: <b>Hoger of Lager</b> ging over kans berekening of je hoger of lager dan de computer zou gooien. Dit project starte begin periode 1, ons aller eerste project.</p>
-                        </div>
-                        <div class="d-flex justify-content-center mb-2">
-                            <a href=" https://mikevdveer.github.io/mikevdveer_hoger-of-lager/">
-                            <button class="btn btn-primary">Visit Now!</button>
-                        </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-3 mb-4">
-                    <div class="card">
-                        <div><img src="assests/Minigames.PNG" alt="Image" class="img-fluid w-100 rounded p-1" style="object-fit: cover; height: 300px;"></div>
-                        <div>
-                            <h5 class="card-title text-center fs-4">Minigames</h5>
-                            <p class="text-center small">Html5, CSS3, Javascript</p>
-                            <p class="text-center mt-2">Dit project starte in periode 2 en moest 3 verschillende minigames bevaten: <span><b>boter, kaas en eiren / wack-a-mole / warschips</b></span> Ik heb gewerkt aan de front-page en boter kaas of eiren.<br><br> Algemeen leuk project.  </p>
-                        </div>
-                        <div class="d-flex justify-content-center mb-2">
-                            <a href="https://mikevdveer.github.io/Minigames/">
-                                <button class="btn btn-primary">Visit Now!</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-3 mb-4">
-                    <div class="card">
-                        <div><img src="assests/Playlist.PNG" alt="Image" class="img-fluid w-100 rounded p-1" style="object-fit: cover; height: 300px;"></div>
-                        <div>
-                            <h5 class="card-title text-center fs-4">Playlist</h5>
-                            <p class="text-center small">Html5 & CSS3</p>
-                            <p class="text-center mt-2">Dit was een les opdracht dat ging over position-sticky. Ik ging zelf destijds onderzoek doen hoe flexbox werkte en hebt dat aan deze playlist toegevoegd. Ik liep al zeer vooruit wat dat betreft html, css</p>
-                        </div>
-                        <div class="d-flex justify-content-center mb-2">
-                            <a href="https://rocmondriaantin.github.io/Playlist/">
-                                <button class="btn btn-primary">Visit Now!</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-3 mb-4">
-                    <div class="card">
-                        <div><img src="assests/Netfixed(old).png" alt="Image" class="img-fluid w-100 rounded p-1" style="object-fit: cover; height: 300px;"></div>
-                        <div>
-                            <h5 class="card-title text-center fs-4">Netfixed (old)</h5>
-                            <p class="text-center small">Html5, CSS3, Javascript</p>
-                            <p class="text-center mt-2">Dit project starte in periode 3. We kregen een extra opdracht van onze Javascript docent: Bouchtaoui die leide aan essentiële tremor. Hij gaf ons het idee om een movie platform te maken.</p>
-                            <p class="bg-warning text-center">De sommige links / images werken niet meer.</p>
-                            <p class="bg-warning text-center">Advertenties is mogelijk aanwezig!</p>
-                        </div>
-                        <div class="d-flex justify-content-center mb-2">
-                            <a href="https://mikevdveer.github.io/Netfixed/">
-                                <button class="btn btn-primary">Visit Now!</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-5" data-aos="fade-bottom">
-                <div class="col-12 col-md-3 mb-4">
-                    <div class="card">
-                        <div><img src="assests/Netfixed 2.0.png" alt="Image" class="img-fluid w-100 rounded p-1" style="object-fit: cover; height: 300px;"></div>
-                        <div>
-                            <h5 class="card-title text-center fs-4">Netfixed 2.0</h5>
-                            <p class="text-center small">Html5, CSS3, Javascript & Express / node.js</p>
-                            <p class="text-center mt-2">Dit Porject starte in mijn laatste periode: 4. Dit is een van mijn favorite projecten die ik heb gemaakt.</p>
-                            <p class="text-center bg-danger"><b>Instroctions of starting express server for full experience</b></p>
-                            <p class="text-center bg-info"><b>step 1: open terminal.<br> Step 2: cd server<br>Step 3: npm install<br>Final step: node index.js</b></p>
-                            <p class="bg-warning text-center">De sommige links / images werken niet meer.</p>
-                            <p class="bg-warning text-center">Advertenties is mogelijk aanwezig!</p>
-                        </div>
-                        <div class="d-flex justify-content-center mb-2">
-                            <button class="btn btn-primary">Visit Now!</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 mb-4">
-                    <div class="card">
-                        <div><img src="assests/Smick.png" alt="Image" class="img-fluid w-100 rounded p-1" style="object-fit: cover; height: 300px;"></div>
-                        <div>
-                            <h5 class="card-title text-center fs-4">Smick (game category's)</h5>
-                            <p class="text-center small">Html5, CSS3, Javascript & node.js</p>
-                            <p class="text-center mt-2">Dit project starte in periode: 3. Dis is mijn meest favoriet gemaakte project in leerjaar 1. Dit is waar ik zeer trots op bent.</p>
-                            <p class="text-center bg-danger"><b>Instroctions of starting express server for full experience</b></p>
-                            <p class="text-center bg-info"><b>step 1: open terminal.<br> Step 2: cd server<br>Step 3: npm install<br>Final step: node index.js</b></p>
-                        </div>
-                        <div class="d-flex justify-content-center mb-2">
-                            <a href="https://mikevdveer.github.io/p03-project-smick/public/">
-                                <button class="btn btn-primary">Visit Now!</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="row" data-aos="fade-bottom">
-                <h3 class="bg-white rounded p-3 container-fluid mb-3">Project - Leerjaar 2</h3>
-                <div class="col-12 col-md-3 mb-4">
-                    <div class="card">
-                        <div><img src="assests/Netfixed Database Project.png" alt="Image" class="img-fluid w-100 rounded p-1" style="object-fit: cover; height: 300px;"></div>
-                        <div>
-                            <h5 class="card-title text-center fs-4">Netfixed Database Project</h5>
-                            <p class="text-center small">Html5, CSS3, Bootstrap, PHP & SQL</p>
-                            <p class="text-center mt-2">Een van mijn favorite gemaakte projecten</p>
-                            <p class="text-center bg-danger"><b>guidance for full experience (xampp)</b></p>
-                            <p class="text-center bg-info"><b>Install xampp 8.2.12, link: https://www.apachefriends.org/download.html</b><br>open xampp: start Apacche & MySQL.<br>Click op admin van SQL. Je bent aan gekomen op phpmyadmin nu vervolgens importeer je het bestand (dbp_data.sql) dat in de assets map zit.<br>Github repo: https://github.com/MikevdVeer/Netfixed_Database_Project_MikevdVeer</p>
-                        </div>
-                        <div class="d-flex justify-content-center mb-2">
-                            <a href="https://mikevdveer.github.io/Netfixed_Database_Project_MikevdVeer/">
-                                <button class="btn btn-primary">Visit Now!</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 mb-4">
-                    <div class="card">
-                        <!-- <div><img src="" alt="Image" class="img-fluid" style="height: 250px; object-fit: cover;"></div> -->
-                        <div>
-                            <h5 class="card-title text-center fs-4">Pizza La Vita Project<br> (coming soon)</h5>
-                            <p class="text-center small">Html5, CSS3, Bootstrap, PHP & SQL, Symfony</p>
-                            
-                        <div class="d-flex justify-content-center"><button class="btn btn-primary">Coming Soon!</button>
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-    </main>
-
-    <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center bg-dark p-3" id="contact">
-        <div class="col-12 col-md-4 d-flex flex-column align-items-start text-white">
-            <h3 class="mb-3">Mike vd Veer</h3>
-            <p class="mb-1">Full-Stack Developer | UI/UX Designer</p>
-            <p class="mb-1"><i class="bi bi-envelope-at"></i> mikeveer@live.nl</p>
-
-            <p class="small"><i class="bi bi-geo-alt"></i> Netherlands - The Hague</p>
-        </div>
-    
-        <ul class="nav col-12 col-md-4 justify-content-center list-unstyled d-flex gap-3">
-            <li><a class="text-decoration-none text-white fs-3" href="https://github.com/MikevdVeer"><i class="bi bi-github"></i></a></li>
-            <li><a class="text-decoration-none text-white fs-3" href="www.linkedin.com/in/mike-veer-72b65b2a9"><i class="bi bi-linkedin"></i></a></li>
-        </ul>
     </footer>
+
+    <button class="btn btn-primary rounded-circle scroll-to-top" aria-label="Scroll to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -205,6 +339,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    
+    <script src="main.js"></script>
 </body>
 
 </html>

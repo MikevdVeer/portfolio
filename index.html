@@ -56,7 +56,7 @@
                             <p class="text-white lead mb-0">I am a social, creative, and motivated student who excels at collaboration. I have a strong passion for software development and excellent visualization skills.</p>
                             <p class="text-white mt-3 mb-0">Hobbies: Music listening, Piano playing, Programming, Hanging out with friends, Reading books.</p>
                             <div class="mt-4">
-                                <a href="path-to-your-cv.pdf" class="btn btn-light" download>
+                                <a href="assets/MikevdVeer - CV.docx" class="btn btn-light" download>
                                     <i class="bi bi-download me-2"></i>Download CV
                                 </a>
                             </div>
@@ -341,44 +341,64 @@
         </section>
     </main>
 
-    <footer class="bg-dark text-white py-4" id="contact">
+    <footer class="bg-dark text-white py-5" id="contact">
         <div class="container">
-            <div class="row">
+            <div class="row g-4" data-aos="fade-up" data-aos-duration="1000">
                 <div class="col-12 col-md-4 mb-4 mb-md-0">
-                    <h3 class="mb-3">Mike vd Veer</h3>
-                    <p class="mb-1">Full-Stack Developer | UI/UX Designer</p>
-                    <p class="mb-1"><i class="bi bi-envelope-at"></i> mikeveer@live.nl</p>
-                    <p class="small mb-0"><i class="bi bi-geo-alt"></i> Netherlands - The Hague</p>
+                    <div class="p-4 bg-dark bg-opacity-50 rounded-3 h-100" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="mb-3 border-bottom border-primary pb-2">Mike vd Veer</h3>
+                        <p class="mb-3 lead">Full-Stack Developer | UI/UX Designer</p>
+                        <div class="d-flex align-items-center mb-2 contact-info">
+                            <i class="bi bi-envelope-at me-2 text-primary"></i>
+                            <a href="mailto:mikeveer@live.nl" class="text-white text-decoration-none hover-effect">mikeveer@live.nl</a>
+                        </div>
+                        <div class="d-flex align-items-center contact-info">
+                            <i class="bi bi-geo-alt me-2 text-primary"></i>
+                            <span>Netherlands - The Hague</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4 mb-md-0">
-                    <div class="d-flex justify-content-center gap-3">
-                        <a class="text-white fs-3" href="https://github.com/MikevdVeer" aria-label="GitHub Profile"><i class="bi bi-github"></i></a>
-                        <a class="text-white fs-3" href="www.linkedin.com/in/mike-veer-72b65b2a9" aria-label="LinkedIn Profile"><i class="bi bi-linkedin"></i></a>
+                    <div class="p-4 bg-dark bg-opacity-50 rounded-3 h-100 text-center" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="mb-4 border-bottom border-primary pb-2">Connect With Me</h3>
+                        <div class="d-flex justify-content-center gap-4">
+                            <a class="social-link" href="https://github.com/MikevdVeer" aria-label="GitHub Profile">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a class="social-link" href="www.linkedin.com/in/mike-veer-72b65b2a9" aria-label="LinkedIn Profile">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <form id="contactForm" class="needs-validation" novalidate>
-                        <div class="mb-3">
-                            <label for="name" class="form-label visually-hidden">Your Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required aria-label="Your Name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label visually-hidden">Your Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required aria-label="Your Email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="subject" class="form-label visually-hidden">Subject</label>
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required aria-label="Subject">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label visually-hidden">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Your Message" required aria-label="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">
-                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                            Send Message
-                        </button>
-                    </form>
+                    <div class="p-4 bg-dark bg-opacity-50 rounded-3" data-aos="fade-left" data-aos-delay="600">
+                        <h3 class="mb-4 border-bottom border-primary pb-2">Get in Touch</h3>
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="mb-3 form-floating">
+                                <input type="text" class="form-control bg-dark bg-opacity-50 text-white" id="name" name="name" placeholder="Your Name" required>
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <input type="email" class="form-control bg-dark bg-opacity-50 text-white" id="email" name="email" placeholder="Your Email" required>
+                                <label for="email">Your Email</label>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <input type="text" class="form-control bg-dark bg-opacity-50 text-white" id="subject" name="subject" placeholder="Subject" required>
+                                <label for="subject">Subject</label>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <textarea class="form-control bg-dark bg-opacity-50 text-white" id="message" name="message" placeholder="Your Message" style="height: 100px" required></textarea>
+                                <label for="message">Your Message</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-3 position-relative overflow-hidden">
+                                <span class="d-flex align-items-center justify-content-center">
+                                    <span class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
+                                    <span>Send Message</span>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

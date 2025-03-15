@@ -75,4 +75,58 @@
 
 .project-links {
     margin-top: auto;
+}
+
+/* Footer Styles */
+.contact-info {
+    transition: transform 0.3s ease;
+}
+
+.contact-info:hover {
+    transform: translateX(10px);
+}
+
+.social-link {
+    color: white;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-link:hover {
+    color: var(--bs-primary);
+    transform: translateY(-5px);
+}
+
+/* Form Styling */
+.form-floating > .form-control,
+.form-floating > .form-control:focus {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+.form-floating > .form-control:focus {
+    border-color: var(--bs-primary);
+}
+
+.form-floating > label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:focus::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button animation */
+.btn-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(var(--bs-primary-rgb), 0.4);
 } 

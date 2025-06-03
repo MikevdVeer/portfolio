@@ -9,6 +9,8 @@
     <meta property="og:description" content="Full-Stack Developer & UI/UX Designer Portfolio">
     <meta property="og:image" content="assets/profile_foto.jpg">
     <meta property="og:url" content="https://mikevdveer.github.io/portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mike vd Veer Portfolio">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,6 +18,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <title>Mike vd Veer - Full-Stack Developer & UI/UX Designer</title>
+    <meta name="keywords" content="Full-Stack Developer, UI/UX Designer, Web Development, Portfolio">
+    <meta name="author" content="Mike vd Veer">
+    <meta name="robots" content="index, follow">
 </head>
 
 <body class="bg-light">
@@ -33,35 +38,142 @@
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#myProjects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li> -->
                 </ul>
             </div>
         </div>
     </nav>
 
     <main id="main-content" class="bg-light">
-        <section id="about" class="py-5 position-relative overflow-hidden">
+        <section id="about" class="py-3 position-relative overflow-hidden">
             <div class="animated-background position-absolute top-0 start-0 w-100 h-100">
                 <div class="wave"></div>
                 <div class="wave"></div>
                 <div class="wave"></div>
                 <div class="pattern-overlay"></div>
             </div>
-            <div class="container py-5 position-relative">
-                <div class="row align-items-center" data-aos="fade-up">
-                    <div class="col-12 col-md-4 mb-4 mb-md-0">
-                        <div class="text-center">
-                            <img class="rounded-circle img-fluid shadow-lg" style="max-width: 300px;" src="assets/profile_foto.jpg" alt="Mike vd Veer - Professional headshot">
+            <div class="container py-3 position-relative">
+                <div class="row" data-aos="fade-up">
+                    <!-- Left Column - Profile & Contact -->
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <div class="bg-white bg-opacity-10 p-3 rounded-3 backdrop-blur h-100">
+                            <div class="text-center mb-3">
+                                <img class="rounded-circle img-fluid shadow-lg mb-2" style="max-width: 200px;" src="assets/profile_foto.jpg" alt="Mike vd Veer - Professional headshot">
+                                <h1 class="text-white h2 mb-1">Mike vd Veer</h1>
+                                <p class="text-white-50 mb-0">Full-Stack Developer & UI/UX Designer</p>
+                            </div>
+                            
+                            <div class="border-top border-white-25 pt-3">
+                                <h3 class="text-white h5 mb-2">Contact Information</h3>
+                                <ul class="list-unstyled text-white">
+                                    <li class="mb-2 d-flex align-items-center">
+                                        <i class="bi bi-envelope me-2 text-white"></i>
+                                        <a href="mailto:mikeveer@live.nl" class="text-white text-decoration-none">mikeveer@live.nl</a>
+                                    </li>
+                                    <li class="mb-2 d-flex align-items-center">
+                                        <i class="bi bi-geo-alt me-2 text-white"></i>
+                                        <span>The Hague, Netherlands</span>
+                                    </li>
+                                    <li class="mb-2 d-flex align-items-center">
+                                        <i class="bi bi-github me-2 text-white"></i>
+                                        <a href="https://github.com/MikevdVeer" class="text-white text-decoration-none" target="_blank">github.com/MikevdVeer</a>
+                                    </li>
+                                    <li class="mb-2 d-flex align-items-center">
+                                        <i class="bi bi-linkedin me-2 text-white"></i>
+                                        <a href="https://linkedin.com/in/mike-veer" class="text-white text-decoration-none" target="_blank">linkedin.com/in/mike-veer</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="border-top border-white-25 pt-3">
+                                <h3 class="text-white h5 mb-2">Quick Links</h3>
+                                <div class="d-grid gap-2">
+                                    <!-- <a href="assets/MikevdVeer - CV.docx" class="btn btn-light" download>
+                                        <i class="bi bi-download me-2"></i>Download CV
+                                    </a> -->
+                                    <a href="#myProjects" class="btn btn-outline-light">
+                                        <i class="bi bi-code-square me-2"></i>View Projects
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Right Column - Professional Info -->
                     <div class="col-12 col-md-8">
-                        <div class="bg-white bg-opacity-10 p-4 rounded-3 backdrop-blur">
-                            <h2 class="text-white mb-4">About Me</h2>
-                            <p class="text-white lead mb-0">I am a social, creative, and motivated student who excels at collaboration. I have a strong passion for software development and excellent visualization skills.</p>
-                            <p class="text-white mt-3 mb-0">Hobbies: Music listening, Piano playing, Programming, Hanging out with friends, Reading books.</p>
-                            <div class="mt-4">
-                                <a href="assets/MikevdVeer - CV.docx" class="btn btn-light" download>
-                                    <i class="bi bi-download me-2"></i>Download CV
-                                </a>
+                        <div class="bg-white bg-opacity-10 p-3 rounded-3 backdrop-blur h-100">
+                            <div class="row g-3">
+                                <!-- Professional Summary -->
+                                <div class="col-12">
+                                    <h3 class="text-white h4 mb-2">Professional Summary</h3>
+                                    <p class="text-white mb-0">
+                                        Dynamic Full-Stack Developer with a strong foundation in both frontend and backend technologies. 
+                                        Specializing in creating responsive, user-friendly web applications with a focus on clean code and 
+                                        optimal performance. Experienced in modern development practices including version control, 
+                                        agile methodologies, and collaborative development.
+                                    </p>
+                                </div>
+
+                                <!-- Core Competencies -->
+                                <div class="col-12">
+                                    <h3 class="text-white h4 mb-2">Core Competencies</h3>
+                                    <div class="row g-2">
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled text-white">
+                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full-Stack Development</li>
+                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Responsive Web Design</li>
+                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Database Management</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled text-white">
+                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>UI/UX Design</li>
+                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Problem Solving</li>
+                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Team Collaboration</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Education -->
+                                <div class="col-12">
+                                    <h3 class="text-white h4 mb-2">Education</h3>
+                                    <div class="card bg-dark bg-opacity-25 border-0">
+                                        <div class="card-body p-3">
+                                            <h4 class="text-white h5 mb-1">Software Development</h4>
+                                            <p class="text-white-50 mb-1">Roc Mondriaan - The Hague</p>
+                                            <p class="text-white-50 mb-0">2023 - Present</p>
+                                            <div class="mt-2">
+                                                <span class="badge bg-primary me-2">Full-Stack Development</span>
+                                                <span class="badge bg-primary me-2">Web Development</span>
+                                                <span class="badge bg-primary">UI/UX Design</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Languages -->
+                                <div class="col-12">
+                                    <h3 class="text-white h4 mb-2">Languages</h3>
+                                    <div class="row g-2">
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span class="text-white me-2">Dutch</span>
+                                                <div class="progress flex-grow-1" style="height: 8px;">
+                                                    <div class="progress-bar bg-primary" style="width: 100%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span class="text-white me-2">English</span>
+                                                <div class="progress flex-grow-1" style="height: 8px;">
+                                                    <div class="progress-bar bg-primary" style="width: 90%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -71,29 +183,78 @@
 
         <section id="skills" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-5">Skills & Technologies</h2>
-                <div class="row">
+                <h2 class="text-center mb-5">Technical Skills & Expertise</h2>
+                <div class="row g-4">
                     <div class="col-12 col-md-4 mb-4">
-                        <h3 class="h4 mb-3">Frontend</h3>
-                        <div class="skill-badge">HTML5</div>
-                        <div class="skill-badge">CSS3</div>
-                        <div class="skill-badge">JavaScript</div>
-                        <div class="skill-badge">Bootstrap</div>
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4 mb-3 text-primary"><i class="bi bi-code-square me-2"></i>Frontend Development</h3>
+                                <div class="skill-category mb-3">
+                                    <h4 class="h6 text-muted mb-2">Languages</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <div class="skill-badge">HTML5</div>
+                                        <div class="skill-badge">CSS3</div>
+                                        <div class="skill-badge">JavaScript</div>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h4 class="h6 text-muted mb-2">Frameworks & Libraries</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <div class="skill-badge">Bootstrap</div>
+                                        <div class="skill-badge">React</div>
+                                        <div class="skill-badge">jQuery</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-md-4 mb-4">
-                        <h3 class="h4 mb-3">Backend</h3>
-                        <div class="skill-badge">PHP</div>
-                        <div class="skill-badge">Node.js</div>
-                        <div class="skill-badge">Express</div>
-                        <div class="skill-badge">SQL</div>
-                        <div class="skill-badge">Symfony</div>
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4 mb-3 text-primary"><i class="bi bi-server me-2"></i>Backend Development</h3>
+                                <div class="skill-category mb-3">
+                                    <h4 class="h6 text-muted mb-2">Languages & Frameworks</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <div class="skill-badge">PHP</div>
+                                        <div class="skill-badge">Node.js</div>
+                                        <div class="skill-badge">Express</div>
+                                        <div class="skill-badge">Symfony</div>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h4 class="h6 text-muted mb-2">Database</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <div class="skill-badge">SQL</div>
+                                        <div class="skill-badge">MongoDB</div>
+                                        <div class="skill-badge">MySQL</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-md-4 mb-4">
-                        <h3 class="h4 mb-3">Tools & Others</h3>
-                        <div class="skill-badge">Git</div>
-                        <div class="skill-badge">UI/UX Design</div>
-                        <div class="skill-badge">Responsive Design</div>
-                        <div class="skill-badge">Problem Solving</div>
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h4 mb-3 text-primary"><i class="bi bi-tools me-2"></i>Tools & Others</h3>
+                                <div class="skill-category mb-3">
+                                    <h4 class="h6 text-muted mb-2">Development Tools</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <div class="skill-badge">Git</div>
+                                        <div class="skill-badge">VS Code</div>
+                                        <div class="skill-badge">XAMPP</div>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h4 class="h6 text-muted mb-2">Design & Soft Skills</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <div class="skill-badge">UI/UX Design</div>
+                                        <div class="skill-badge">Responsive Design</div>
+                                        <div class="skill-badge">Problem Solving</div>
+                                        <div class="skill-badge">Team Collaboration</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

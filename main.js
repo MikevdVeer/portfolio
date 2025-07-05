@@ -16,45 +16,7 @@ document.getElementById('projectSearch').addEventListener('keyup', function() {
     });
 });
 
-// Contact Form Handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitButton = this.querySelector('button[type="submit"]');
-    const spinner = submitButton.querySelector('.spinner-border');
-    const buttonText = submitButton.textContent.trim();
-    
-    // Show loading state
-    submitButton.disabled = true;
-    spinner.classList.remove('d-none');
-    submitButton.textContent = 'Sending...';
-    
-    const formData = new FormData(this);
-    
-    fetch('contact.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            this.reset();
-            alert(data.message);
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again later.');
-    })
-    .finally(() => {
-        // Reset button state
-        submitButton.disabled = false;
-        spinner.classList.add('d-none');
-        submitButton.textContent = buttonText;
-    });
-});
+
 
 // Scroll to Top Button
 const scrollToTopButton = document.querySelector('.scroll-to-top');
@@ -234,38 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Form validation and submission handling
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const spinner = submitBtn.querySelector('.spinner-border');
-            
-            if (!this.checkValidity()) {
-                e.stopPropagation();
-                this.classList.add('was-validated');
-                return;
-            }
 
-            // Simulate form submission
-            submitBtn.disabled = true;
-            spinner.classList.remove('d-none');
-            
-            try {
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                this.reset();
-                this.classList.remove('was-validated');
-                alert('Message sent successfully!');
-            } catch (error) {
-                alert('Failed to send message. Please try again.');
-            } finally {
-                submitBtn.disabled = false;
-                spinner.classList.add('d-none');
-            }
-        });
-    }
 
     // Scroll to top button functionality
     const scrollTopButton = document.querySelector('.scroll-to-top');

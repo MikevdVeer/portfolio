@@ -98,45 +98,72 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure all content is visible on page load
+    const allSections = document.querySelectorAll('section');
+    const allCards = document.querySelectorAll('.card');
+    
+    console.log('Found sections:', allSections.length);
+    console.log('Found cards:', allCards.length);
+    
+    allSections.forEach(section => {
+        section.style.display = 'block';
+        section.style.visibility = 'visible';
+        section.style.opacity = '1';
+    });
+    
+    allCards.forEach(card => {
+        card.style.display = 'block';
+        card.style.visibility = 'visible';
+        card.style.opacity = '1';
+    });
     // Project Search with Animation
     const searchInput = document.getElementById('projectSearch');
-    const projectCards = document.querySelectorAll('.col-md-3');
+    const projectCards = document.querySelectorAll('#myProjects .col-12.col-md-3, #myProjects .col-12.col-md-4');
     let searchTimeout;
 
-    searchInput.addEventListener('input', function() {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => {
+    // Fallback: if no specific project cards found, get all cards in projects section
+    const fallbackCards = projectCards.length === 0 ? document.querySelectorAll('#myProjects .card') : projectCards;
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
             const searchTerm = this.value.toLowerCase();
             
-            projectCards.forEach(cardWrapper => {
-                const card = cardWrapper.querySelector('.card');
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const description = card.querySelector('.card-text').textContent.toLowerCase();
-                const technologies = Array.from(card.querySelectorAll('.badge'))
-                    .map(badge => badge.textContent.toLowerCase())
-                    .join(' ');
+            fallbackCards.forEach(cardWrapper => {
+                    const card = cardWrapper.querySelector('.card');
+                    if (!card) return;
+                    
+                    const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+                    const description = card.querySelector('.card-text')?.textContent.toLowerCase() || '';
+                    const technologies = Array.from(card.querySelectorAll('.badge'))
+                        .map(badge => badge.textContent.toLowerCase())
+                        .join(' ');
 
-                const matches = title.includes(searchTerm) || 
-                              description.includes(searchTerm) || 
-                              technologies.includes(searchTerm);
+                    const matches = title.includes(searchTerm) || 
+                                  description.includes(searchTerm) || 
+                                  technologies.includes(searchTerm);
 
-                // Add Bootstrap fade classes for smooth transitions
-                if (matches) {
-                    cardWrapper.classList.remove('d-none');
-                    setTimeout(() => {
-                        card.classList.add('shadow-lg');
-                        card.classList.add('border-primary');
-                    }, 50);
-                } else {
-                    card.classList.remove('shadow-lg');
-                    card.classList.remove('border-primary');
-                    setTimeout(() => {
-                        cardWrapper.classList.add('d-none');
-                    }, 300);
-                }
-            });
-        }, 300);
-    });
+                    // Add Bootstrap fade classes for smooth transitions
+                    if (matches) {
+                        cardWrapper.style.display = '';
+                        cardWrapper.classList.remove('d-none');
+                        setTimeout(() => {
+                            card.classList.add('shadow-lg');
+                            card.classList.add('border-primary');
+                        }, 50);
+                    } else {
+                        card.classList.remove('shadow-lg');
+                        card.classList.remove('border-primary');
+                        setTimeout(() => {
+                            cardWrapper.style.display = 'none';
+                            cardWrapper.classList.add('d-none');
+                        }, 300);
+                    }
+                });
+            }, 300);
+        });
+    }
 
     // Project Filtering with Animation
     const filterButtons = document.querySelectorAll('[data-filter]');
@@ -149,9 +176,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const filterValue = this.getAttribute('data-filter');
             
-            projectCards.forEach(cardWrapper => {
+            fallbackCards.forEach(cardWrapper => {
                 const card = cardWrapper.querySelector('.card');
-                const badge = card.querySelector('.badge').textContent.toLowerCase();
+                if (!card) return;
+                
+                const badge = card.querySelector('.badge')?.textContent.toLowerCase() || '';
                 
                 // Reset card styles
                 card.classList.remove('shadow-lg', 'border-primary');
@@ -159,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (filterValue === 'all' || badge.includes(filterValue.toLowerCase())) {
                     // Show matching cards with animation
+                    cardWrapper.style.display = '';
                     cardWrapper.classList.remove('d-none');
                     setTimeout(() => {
                         cardWrapper.style.transform = 'scale(1)';
@@ -168,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Hide non-matching cards with animation
                     cardWrapper.style.transform = 'scale(0.8)';
                     setTimeout(() => {
+                        cardWrapper.style.display = 'none';
                         cardWrapper.classList.add('d-none');
                     }, 300);
                 }
@@ -176,8 +207,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add hover effects using Bootstrap classes
-    projectCards.forEach(cardWrapper => {
+    fallbackCards.forEach(cardWrapper => {
         const card = cardWrapper.querySelector('.card');
+        if (!card) return;
         
         card.addEventListener('mouseenter', function() {
             this.classList.add('shadow-lg', 'border-primary');
@@ -192,12 +224,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Initialize AOS with custom settings
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100,
-        easing: 'ease-in-out'
-    });
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out',
+            disable: 'mobile' // Disable on mobile to prevent issues
+        });
+    }
 
     // Form validation and submission handling
     const contactForm = document.getElementById('contactForm');

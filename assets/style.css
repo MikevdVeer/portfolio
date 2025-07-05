@@ -4,6 +4,28 @@
     font-weight: bold;
 }
 
+/* Ensure content visibility */
+section {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.card {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Fix for AOS animations */
+[data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+[data-aos].aos-animate {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
 /* Cards */
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;

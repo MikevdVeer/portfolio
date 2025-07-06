@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior: smooth;">
+<html lang="en" class="dark" style="scroll-behavior: smooth;">
 
 <head>
     <meta charset="UTF-8">
@@ -13,87 +13,148 @@
     <meta property="og:site_name" content="Mike vd Veer Portfolio">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b',
+                        accent: '#8b5cf6',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
     <title>Mike vd Veer - Full-Stack Developer & UI/UX Designer</title>
     <meta name="keywords" content="Full-Stack Developer, UI/UX Designer, Web Development, Portfolio">
     <meta name="author" content="Mike vd Veer">
     <meta name="robots" content="index, follow">
 </head>
 
-<body class="bg-light">
-    <a href="#main-content" class="visually-hidden-focusable">Skip to main content</a>
+<body class="bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50">Skip to main content</a>
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/">Mike vd Veer</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#myProjects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#upcomingProjects">Upcoming</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li> -->
-                </ul>
+    <nav class="bg-gray-100 dark:bg-dark sticky top-0 shadow-lg z-40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a class="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-400 transition-colors" href="/">Mike vd Veer</a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#about">About Me</a>
+                        <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#skills">Skills</a>
+                        <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#myProjects">Projects</a>
+                        <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#upcomingProjects">Upcoming</a>
+                        <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#contact">Contact</a>
+                        <button id="dark-mode-toggle" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" aria-label="Toggle dark mode">
+                            <i class="bi bi-moon-fill dark:hidden"></i>
+                            <i class="bi bi-sun-fill hidden dark:inline"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-400 hover:text-white focus:outline-none focus:text-white" id="mobile-menu-button">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="#about">About Me</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="#skills">Skills</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="#myProjects">Projects</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="#upcomingProjects">Upcoming</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="#contact">Contact</a>
+                    <button id="dark-mode-toggle-mobile" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left" aria-label="Toggle dark mode">
+                        <i class="bi bi-moon-fill dark:hidden mr-2"></i>
+                        <i class="bi bi-sun-fill hidden dark:inline mr-2"></i>
+                        <span class="dark:hidden">Dark Mode</span>
+                        <span class="hidden dark:inline">Light Mode</span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main id="main-content" class="bg-light">
-        <section id="about" class="py-3 position-relative overflow-hidden">
-            <div class="animated-background position-absolute top-0 start-0 w-100 h-100">
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="wave"></div>
-                <div class="pattern-overlay"></div>
+    <main id="main-content" class="relative transition-colors duration-300">
+        <!-- Continuous gradient background container -->
+        <div class="continuous-gradient-bg">
+            <!-- Animated particles for the entire page -->
+            <div class="particles-container">
+                <div class="particle" style="--delay: 0s; --duration: 20s; --size: 2px; --x: 10%; --y: 20%;"></div>
+                <div class="particle" style="--delay: 2s; --duration: 25s; --size: 3px; --x: 80%; --y: 15%;"></div>
+                <div class="particle" style="--delay: 4s; --duration: 18s; --size: 1.5px; --x: 20%; --y: 80%;"></div>
+                <div class="particle" style="--delay: 6s; --duration: 22s; --size: 2.5px; --x: 90%; --y: 70%;"></div>
+                <div class="particle" style="--delay: 8s; --duration: 30s; --size: 1px; --x: 50%; --y: 10%;"></div>
+                <div class="particle" style="--delay: 10s; --duration: 16s; --size: 3px; --x: 15%; --y: 60%;"></div>
+                <div class="particle" style="--delay: 12s; --duration: 28s; --size: 2px; --x: 85%; --y: 40%;"></div>
+                <div class="particle" style="--delay: 14s; --duration: 24s; --size: 1.5px; --x: 30%; --y: 90%;"></div>
+                <div class="particle" style="--delay: 16s; --duration: 26s; --size: 2.2px; --x: 70%; --y: 85%;"></div>
+                <div class="particle" style="--delay: 18s; --duration: 19s; --size: 1.8px; --x: 25%; --y: 45%;"></div>
+                <div class="particle" style="--delay: 20s; --duration: 32s; --size: 2.8px; --x: 95%; --y: 25%;"></div>
+                <div class="particle" style="--delay: 22s; --duration: 21s; --size: 1.3px; --x: 5%; --y: 75%;"></div>
             </div>
-            <div class="container py-3 position-relative">
-                <div class="row" data-aos="fade-up">
+            
+            <!-- Geometric shapes for the entire page -->
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+            <div class="geometric-shape shape-4"></div>
+            <div class="geometric-shape shape-5"></div>
+            <div class="geometric-shape shape-6"></div>
+            <div class="geometric-shape shape-7"></div>
+            <div class="geometric-shape shape-8"></div>
+        </div>
+
+        <section id="about" class="py-12 relative overflow-hidden">
+            <!-- Gradient overlay for better text readability -->
+            <div class="absolute inset-0 bg-gradient-to-t  via-transparent to-black/20"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-aos="fade-up">
                     <!-- Left Column - Profile & Contact -->
-                    <div class="col-12 col-md-4 mb-3 mb-md-0">
-                        <div class="bg-white bg-opacity-10 p-3 rounded-3 backdrop-blur h-100">
-                            <div class="text-center mb-3">
-                                <img class="rounded-circle img-fluid shadow-lg mb-2" style="max-width: 200px;" src="assets/profile_foto.jpg" alt="Mike vd Veer - Professional headshot">
-                                <h1 class="text-white h2 mb-1">Mike vd Veer</h1>
-                                <p class="text-white-50 mb-0">Full-Stack Developer & UI/UX Designer</p>
+                    <div class="lg:col-span-1">
+                        <div class="bg-dark-light bg-opacity-80 backdrop-blur-sm p-6 rounded-2xl h-full border border-gray-700">
+                            <div class="text-center mb-6">
+                                <img class="rounded-full w-48 h-48 mx-auto shadow-2xl mb-4 object-cover" src="assets/profile_foto.jpg" alt="Mike vd Veer - Professional headshot">
+                                <h1 class="text-white text-2xl font-bold mb-2">Mike vd Veer</h1>
+                                <p class="text-gray-300 mb-0">Full-Stack Developer & UI/UX Designer</p>
                             </div>
                             
-                            <div class="border-top border-white-25 pt-3">
-                                <h3 class="text-white h5 mb-2">Contact Information</h3>
-                                <ul class="list-unstyled text-white">
-                                    <li class="mb-2 d-flex align-items-center">
-                                        <i class="bi bi-envelope me-2 text-white"></i>
-                                        <a href="mailto:mikeveer@live.nl" class="text-white text-decoration-none">mikeveer@live.nl</a>
+                            <div class="border-t border-gray-600 pt-6">
+                                <h3 class="text-white text-lg font-semibold mb-4">Contact Information</h3>
+                                <ul class="space-y-3 text-white">
+                                    <li class="flex items-center">
+                                        <i class="bi bi-envelope text-blue-400 mr-3"></i>
+                                        <a href="mailto:mikeveer@live.nl" class="text-white hover:text-blue-400 transition-colors">mikeveer@live.nl</a>
                                     </li>
-                                    <li class="mb-2 d-flex align-items-center">
-                                        <i class="bi bi-geo-alt me-2 text-white"></i>
+                                    <li class="flex items-center">
+                                        <i class="bi bi-geo-alt text-blue-400 mr-3"></i>
                                         <span>The Hague, Netherlands</span>
                                     </li>
-                                    <li class="mb-2 d-flex align-items-center">
-                                        <i class="bi bi-github me-2 text-white"></i>
-                                        <a href="https://github.com/MikevdVeer" class="text-white text-decoration-none" target="_blank">github.com/MikevdVeer</a>
+                                    <li class="flex items-center">
+                                        <i class="bi bi-github text-blue-400 mr-3"></i>
+                                        <a href="https://github.com/MikevdVeer" class="text-white hover:text-blue-400 transition-colors" target="_blank">github.com/MikevdVeer</a>
                                     </li>
-                                    <li class="mb-2 d-flex align-items-center">
-                                        <i class="bi bi-linkedin me-2 text-white"></i>
-                                        <a href="https://linkedin.com/in/mike-veer" class="text-white text-decoration-none" target="_blank">linkedin.com/in/mike-veer</a>
+                                    <li class="flex items-center">
+                                        <i class="bi bi-linkedin text-blue-400 mr-3"></i>
+                                        <a href="https://linkedin.com/in/mike-veer-72b65b2a9" class="text-white hover:text-blue-400 transition-colors" target="_blank">linkedin.com/in/mike-veer</a>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div class="border-top border-white-25 pt-3">
-                                <h3 class="text-white h5 mb-2">Quick Links</h3>
-                                <div class="d-grid gap-2">
-                                    <!-- <a href="assets/MikevdVeer - CV.docx" class="btn btn-light" download>
-                                        <i class="bi bi-download me-2"></i>Download CV
-                                    </a> -->
-                                    <a href="#myProjects" class="btn btn-outline-light">
-                                        <i class="bi bi-code-square me-2"></i>View Projects
+                            <div class="border-t border-gray-600 pt-6">
+                                <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                                <div class="space-y-3">
+                                    <a href="#myProjects" class="block w-full bg-transparent border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-4 py-2 rounded-lg transition-colors text-center">
+                                        <i class="bi bi-code-square mr-2"></i>View Projects
                                     </a>
                                 </div>
                             </div>
@@ -101,13 +162,13 @@
                     </div>
 
                     <!-- Right Column - Professional Info -->
-                    <div class="col-12 col-md-8">
-                        <div class="bg-white bg-opacity-10 p-3 rounded-3 backdrop-blur h-100">
-                            <div class="row g-3">
+                    <div class="lg:col-span-2">
+                        <div class="bg-dark-light bg-opacity-80 backdrop-blur-sm p-6 rounded-2xl h-full border border-gray-700">
+                            <div class="space-y-6">
                                 <!-- Professional Summary -->
-                                <div class="col-12">
-                                    <h3 class="text-white h4 mb-2">Professional Summary</h3>
-                                    <p class="text-white mb-0">
+                                <div>
+                                    <h3 class="text-white text-xl font-semibold mb-3">Professional Summary</h3>
+                                    <p class="text-gray-300 leading-relaxed">
                                         Dynamic Full-Stack Developer with a strong foundation in both frontend and backend technologies. 
                                         Specializing in creating responsive, user-friendly web applications with a focus on clean code and 
                                         optimal performance. Experienced in modern development practices including version control, 
@@ -116,60 +177,70 @@
                                 </div>
 
                                 <!-- Core Competencies -->
-                                <div class="col-12">
-                                    <h3 class="text-white h4 mb-2">Core Competencies</h3>
-                                    <div class="row g-2">
-                                        <div class="col-md-6">
-                                            <ul class="list-unstyled text-white">
-                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full-Stack Development</li>
-                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Responsive Web Design</li>
-                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Database Management</li>
+                                <div>
+                                    <h3 class="text-white text-xl font-semibold mb-3">Core Competencies</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <ul class="space-y-2 text-white">
+                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Full-Stack Development</li>
+                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Responsive Web Design</li>
+                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Database Management</li>
                                             </ul>
                                         </div>
-                                        <div class="col-md-6">
-                                            <ul class="list-unstyled text-white">
-                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>UI/UX Design</li>
-                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Problem Solving</li>
-                                                <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Team Collaboration</li>
+                                        <div>
+                                            <ul class="space-y-2 text-white">
+                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>UI/UX Design</li>
+                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Problem Solving</li>
+                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Team Collaboration</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Education -->
-                                <div class="col-12">
-                                    <h3 class="text-white h4 mb-2">Education</h3>
-                                    <div class="card bg-dark bg-opacity-25 border-0">
-                                        <div class="card-body p-3">
-                                            <h4 class="text-white h5 mb-1">Software Development</h4>
-                                            <p class="text-white-50 mb-1">Roc Mondriaan - The Hague</p>
-                                            <p class="text-white-50 mb-0">2023 - Present</p>
-                                            <div class="mt-2">
-                                                <span class="badge bg-primary me-2">Full-Stack Development</span>
-                                                <span class="badge bg-primary me-2">Web Development</span>
-                                                <span class="badge bg-primary">UI/UX Design</span>
-                                            </div>
+                                <div>
+                                    <h3 class="text-white text-xl font-semibold mb-3">Education</h3>
+                                    <div class="bg-dark bg-opacity-50 border border-gray-600 rounded-xl p-4">
+                                        <h4 class="text-white text-lg font-semibold mb-2">Software Development</h4>
+                                        <p class="text-gray-300 mb-1">Roc Mondriaan - Delft</p>
+                                        <p class="text-gray-300 mb-3">2023 - Present</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Full-Stack Development</span>
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Web Development</span>
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">UI/UX Design</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="bg-dark bg-opacity-50 border border-gray-600 rounded-xl p-4">
+                                        <h4 class="text-white text-lg font-semibold mb-2">IT Support Employee</h4>
+                                        <p class="text-gray-300 mb-1">Roc Mondriaan - Tinwerf</p>
+                                        <p class="text-gray-300 mb-3">2021 - 2023</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Hardware</span>
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Software</span>
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Network</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Languages -->
-                                <div class="col-12">
-                                    <h3 class="text-white h4 mb-2">Languages</h3>
-                                    <div class="row g-2">
-                                        <div class="col-md-6">
-                                            <div class="d-flex align-items-center mb-2">
-                                                <span class="text-white me-2">Dutch</span>
-                                                <div class="progress flex-grow-1" style="height: 8px;">
-                                                    <div class="progress-bar bg-primary" style="width: 100%"></div>
+                                <div>
+                                    <h3 class="text-white text-xl font-semibold mb-3">Languages</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <div class="flex items-center mb-3">
+                                                <span class="text-white mr-3 w-16">Dutch</span>
+                                                <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 100%"></div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="d-flex align-items-center mb-2">
-                                                <span class="text-white me-2">English</span>
-                                                <div class="progress flex-grow-1" style="height: 8px;">
-                                                    <div class="progress-bar bg-primary" style="width: 90%"></div>
+                                        <div>
+                                            <div class="flex items-center mb-3">
+                                                <span class="text-white mr-3 w-16">English</span>
+                                                <div class="flex-1 bg-gray-700 rounded-full h-2">
+                                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -182,361 +253,545 @@
             </div>
         </section>
 
-        <section id="skills" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-5">Technical Skills & Expertise</h2>
-                <div class="row g-4">
-                    <div class="col-12 col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h3 class="h4 mb-3 text-primary"><i class="bi bi-code-square me-2"></i>Frontend Development</h3>
-                                <div class="skill-category mb-3">
-                                    <h4 class="h6 text-muted mb-2">Languages</h4>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <div class="skill-badge">HTML5</div>
-                                        <div class="skill-badge">CSS3</div>
-                                        <div class="skill-badge">JavaScript</div>
-                                    </div>
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 relative z-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-center text-3xl font-bold text-gray-900 dark:text-white mb-12">Technical Skills & Expertise</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-center mb-4">
+                                <i class="bi bi-code-square text-blue-400 text-2xl mr-3"></i>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Frontend Development</h3>
+                            </div>
+                            <div class="mb-6">
+                                <h4 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Languages</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
                                 </div>
-                                <div class="skill-category">
-                                    <h4 class="h6 text-muted mb-2">Frameworks & Libraries</h4>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <div class="skill-badge">Bootstrap</div>
-                                        <div class="skill-badge">React</div>
-                                        <div class="skill-badge">jQuery</div>
-                                    </div>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Frameworks & Libraries</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">React</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">jQuery</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h3 class="h4 mb-3 text-primary"><i class="bi bi-server me-2"></i>Backend Development</h3>
-                                <div class="skill-category mb-3">
-                                    <h4 class="h6 text-muted mb-2">Languages & Frameworks</h4>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <div class="skill-badge">PHP</div>
-                                        <div class="skill-badge">Node.js</div>
-                                        <div class="skill-badge">Express</div>
-                                        <div class="skill-badge">Symfony</div>
-                                    </div>
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-center mb-4">
+                                <i class="bi bi-server text-blue-400 text-2xl mr-3"></i>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Backend Development</h3>
+                            </div>
+                            <div class="mb-6">
+                                <h4 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Languages & Frameworks</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">PHP</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">Node.js</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">Express</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">Symfony</span>
                                 </div>
-                                <div class="skill-category">
-                                    <h4 class="h6 text-muted mb-2">Database</h4>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <div class="skill-badge">SQL</div>
-                                        <div class="skill-badge">MongoDB</div>
-                                        <div class="skill-badge">MySQL</div>
-                                    </div>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Database</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">SQL</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">MongoDB</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">MySQL</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h3 class="h4 mb-3 text-primary"><i class="bi bi-tools me-2"></i>Tools & Others</h3>
-                                <div class="skill-category mb-3">
-                                    <h4 class="h6 text-muted mb-2">Development Tools</h4>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <div class="skill-badge">Git</div>
-                                        <div class="skill-badge">VS Code</div>
-                                        <div class="skill-badge">XAMPP</div>
-                                    </div>
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div class="flex items-center mb-4">
+                                <i class="bi bi-tools text-blue-400 text-2xl mr-3"></i>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Tools & Others</h3>
+                            </div>
+                            <div class="mb-6">
+                                <h4 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Development Tools</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">Git</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">VS Code</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">XAMPP</span>
                                 </div>
-                                <div class="skill-category">
-                                    <h4 class="h6 text-muted mb-2">Design & Soft Skills</h4>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <div class="skill-badge">UI/UX Design</div>
-                                        <div class="skill-badge">Responsive Design</div>
-                                        <div class="skill-badge">Problem Solving</div>
-                                        <div class="skill-badge">Team Collaboration</div>
-                                    </div>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Design & Soft Skills</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">UI/UX Design</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">Responsive Design</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">Problem Solving</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm">Team Collaboration</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-
-
-        <section id="myProjects" class="py-5 position-relative">
-            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);">
-                <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%239C92AC\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');"></div>
-            </div>
-            <div class="container position-relative">
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="input-group">
-                            <span class="input-group-text bg-white border-end-0">
-                                <i class="bi bi-search"></i>
-                            </span>
-                            <input type="text" class="form-control border-start-0" id="projectSearch" placeholder="Search projects by name, technology, or description..." aria-label="Search projects">
+            <!-- Projects Section -->
+            <section id="myProjects" class="py-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <!-- Search Bar - Left Side -->
+                    <div class="flex-1 max-w-md">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="bi bi-search text-gray-400"></i>
+                            </div>
+                            <input type="text" class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300" id="projectSearch" placeholder="Search projects by name, technology, or description..." aria-label="Search projects">
+                        </div>
+                    </div>
+                    
+                    <!-- Filter Buttons - Right Side -->
+                    <div class="flex justify-center md:justify-end">
+                        <div class="inline-flex rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-dark" role="group" aria-label="Project filters">
+                            <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 border-r border-gray-300 dark:border-gray-600 rounded-l-lg hover:bg-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-white transition-colors" data-filter="all">All</button>
+                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-transparent border-r border-gray-300 dark:border-gray-600 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-white transition-colors" data-filter="beginner">Beginner</button>
+                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-transparent border-r border-gray-300 dark:border-gray-600 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-white transition-colors" data-filter="intermediate">Intermediate</button>
+                            <button type="button" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-transparent hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-white transition-colors" data-filter="advanced">Advanced</button>
                         </div>
                     </div>
                 </div>
-                <div class="mb-4">
-                    <div class="btn-group" role="group" aria-label="Project filters">
-                        <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
-                        <button type="button" class="btn btn-outline-primary" data-filter="beginner">Beginner</button>
-                        <button type="button" class="btn btn-outline-primary" data-filter="intermediate">Intermediate</button>
-                        <button type="button" class="btn btn-outline-primary" data-filter="advanced">Advanced</button>
+                <div class="mb-12" data-aos="fade-bottom">
+                    <div class="mb-8">
+                        <h3 class="text-blue-400 text-2xl font-bold border-b-2 border-blue-400 pb-2 mb-6">Projects - Year 1</h3>
                     </div>
-                </div>
-                <div class="row mb-5" data-aos="fade-bottom">
-                    <div class="col-12">
-                        <h3 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">Projects - Year 1</h3>
-                    </div>
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <img src="assets/Hoger_lager.png" alt="Higher or Lower" class="card-img-top" style="height: 200px; object-fit: cover;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-success">Beginner</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <img src="assets/Hoger_lager.png" alt="Higher or Lower" class="w-full h-48 object-cover rounded-t-xl">
+                                <span class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">Beginner</span>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Higher or Lower</h5>
-                                <p class="text-muted small text-center mb-3">Period 1 - Year 1</p>
-                                <p class="card-text flex-grow-1">Dice game focused on probability calculation, where you predict if you'll roll higher or lower than the computer. This was our first project in period 1.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Higher or Lower</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Period 1 - Year 1</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">Dice game focused on probability calculation, where you predict if you'll roll higher or lower than the computer. This was our first project in period 1.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
                                 </div>
                                 <div class="text-center">
-                                    <a href="https://mikevdveer.github.io/mikevdveer_hoger-of-lager/" class="btn btn-primary">
-                                        <i class="bi bi-link-45deg me-2"></i>Visit Project
+                                    <a href="https://mikevdveer.github.io/mikevdveer_hoger-of-lager/" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="bi bi-link-45deg mr-2"></i>Visit Project
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <img src="assets/Minigames.PNG" alt="Minigames" class="card-img-top" style="height: 200px; object-fit: cover;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-warning text-dark">Intermediate</span>
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <img src="assets/Minigames.PNG" alt="Minigames" class="w-full h-48 object-cover rounded-t-xl">
+                                <span class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-medium">Intermediate</span>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Minigames</h5>
-                                <p class="text-muted small text-center mb-3">Period 2 - Year 1</p>
-                                <p class="card-text flex-grow-1">A collection of three different minigames: Tic-tac-toe, Whack-a-mole, and Battleship. I worked on the front page and the Tic-tac-toe game implementation.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Minigames</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Period 2 - Year 1</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">A collection of three different minigames: Tic-tac-toe, Whack-a-mole, and Battleship. I worked on the front page and the Tic-tac-toe game implementation.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
                                 </div>
                                 <div class="text-center">
-                                    <a href="https://mikevdveer.github.io/Minigames/" class="btn btn-primary">
-                                        <i class="bi bi-link-45deg me-2"></i>Visit Project
+                                    <a href="https://mikevdveer.github.io/Minigames/" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="bi bi-link-45deg mr-2"></i>Visit Project
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <img src="assets/Playlist.PNG" alt="Playlist" class="card-img-top" style="height: 200px; object-fit: cover;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-success">Beginner</span>
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <img src="assets/Playlist.PNG" alt="Playlist" class="w-full h-48 object-cover rounded-t-xl">
+                                <span class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">Beginner</span>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Playlist</h5>
-                                <p class="text-muted small text-center mb-3">Period 2 - Year 1</p>
-                                <p class="card-text flex-grow-1">A lesson assignment about position-sticky. I took the initiative to research and implement flexbox in this playlist, demonstrating advanced CSS skills.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Playlist</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Period 2 - Year 1</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">A lesson assignment about position-sticky. I took the initiative to research and implement flexbox in this playlist, demonstrating advanced CSS skills.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
                                 </div>
                                 <div class="text-center">
-                                    <a href="https://rocmondriaantin.github.io/Playlist/" class="btn btn-primary">
-                                        <i class="bi bi-link-45deg me-2"></i>Visit Project
+                                    <a href="https://rocmondriaantin.github.io/Playlist/" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="bi bi-link-45deg mr-2"></i>Visit Project
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <img src="assets/Netfixed(old).png" alt="Netfixed (old)" class="card-img-top" style="height: 200px; object-fit: cover;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-warning text-dark">Intermediate</span>
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <img src="assets/Netfixed(old).png" alt="Netfixed (old)" class="w-full h-48 object-cover rounded-t-xl">
+                                <span class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-medium">Intermediate</span>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Netfixed (old)</h5>
-                                <p class="text-muted small text-center mb-3">Period 3 - Year 1</p>
-                                <p class="card-text flex-grow-1">A movie platform project inspired by our JavaScript teacher. This project demonstrates frontend development skills and user interface design.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Netfixed (old)</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Period 3 - Year 1</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">A movie platform project inspired by our JavaScript teacher. This project demonstrates frontend development skills and user interface design.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
                                 </div>
-                                <div class="alert alert-warning mb-3">
-                                    <p class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Some links and images may not work.</p>
-                                    <p class="mb-0"><i class="bi bi-info-circle me-2"></i>Advertisements may be present!</p>
+                                <div class="bg-yellow-100 dark:bg-yellow-900 bg-opacity-20 border border-yellow-400 dark:border-yellow-600 rounded-lg p-3 mb-4">
+                                    <p class="text-yellow-800 dark:text-yellow-300 text-sm mb-1"><i class="bi bi-exclamation-triangle mr-2"></i>Some links and images may not work.</p>
+                                    <p class="text-yellow-800 dark:text-yellow-300 text-sm mb-0"><i class="bi bi-info-circle mr-2"></i>Advertisements may be present!</p>
                                 </div>
                                 <div class="text-center">
-                                    <button class="btn btn-primary" disabled>
-                                        <i class="bi bi-link-45deg me-2"></i>Project Disabled
+                                    <button class="inline-flex items-center bg-gray-600 text-gray-400 px-4 py-2 rounded-lg cursor-not-allowed" disabled>
+                                        <i class="bi bi-link-45deg mr-2"></i>Project Disabled
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
-                <div class="row mb-5" data-aos="fade-bottom">
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <img src="assets/Netfixed 2.0.png" alt="Netfixed 2.0" class="card-img-top" style="height: 200px; object-fit: cover;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-danger">Advanced</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12 auto-rows-fr" data-aos="fade-bottom">
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <img src="assets/Netfixed 2.0.png" alt="Netfixed 2.0" class="w-full h-48 object-cover rounded-t-xl">
+                                <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium">Advanced</span>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Netfixed 2.0</h5>
-                                <p class="text-muted small text-center mb-3">Period 4 - Year 1</p>
-                                <p class="card-text flex-grow-1">An enhanced version of the movie platform with backend integration. This project showcases full-stack development skills.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-nodejs me-1"></i>Node.js</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-server me-1"></i>Express</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Netfixed 2.0</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Period 4 - Year 1</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">An enhanced version of the movie platform with backend integration. This project showcases full-stack development skills.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-nodejs mr-1"></i>Node.js</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-server mr-1"></i>Express</span>
                                 </div>
-                                <div class="alert alert-info mb-3">
-                                    <p class="mb-0"><i class="bi bi-terminal me-2"></i>Server setup required for full experience</p>
-                                    <p class="mb-0"><i class="bi bi-code-square me-2"></i>cd server && npm install && node index.js</p>
+                                <div class="bg-blue-100 dark:bg-blue-900 bg-opacity-20 border border-blue-400 dark:border-blue-600 rounded-lg p-3 mb-4">
+                                    <p class="text-blue-800 dark:text-blue-300 text-sm mb-1"><i class="bi bi-terminal mr-2"></i>Server setup required for full experience</p>
+                                    <p class="text-blue-800 dark:text-blue-300 text-sm mb-0"><i class="bi bi-code-square mr-2"></i>cd server && npm install && node index.js</p>
                                 </div>
                                 <div class="text-center">
-                                    <button class="btn btn-primary">
-                                        <i class="bi bi-link-45deg me-2"></i>Visit Project
+                                    <button class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="bi bi-link-45deg mr-2"></i>Visit Project
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <img src="assets/Smick.png" alt="Smick" class="card-img-top" style="height: 200px; object-fit: cover;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-danger">Advanced</span>
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <img src="assets/Smick.png" alt="Smick" class="w-full h-48 object-cover rounded-t-xl">
+                                <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium">Advanced</span>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Smick (Game Categories)</h5>
-                                <p class="text-muted small text-center mb-3">Period 3 - Year 1</p>
-                                <p class="card-text flex-grow-1">A comprehensive game categories platform with backend integration. This project demonstrates advanced full-stack development skills.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-nodejs me-1"></i>Node.js</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-json me-1"></i>JSON</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Smick (Game Categories)</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Period 3 - Year 1</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">A comprehensive game categories platform with backend integration. This project demonstrates advanced full-stack development skills.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-nodejs mr-1"></i>Node.js</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-json mr-1"></i>JSON</span>
                                 </div>
-                                <div class="alert alert-info mb-3">
-                                    <p class="mb-0"><i class="bi bi-terminal me-2"></i>Server setup required for full experience</p>
-                                    <p class="mb-0"><i class="bi bi-code-square me-2"></i>cd server && npm install && node index.js</p>
+                                <div class="bg-blue-100 dark:bg-blue-900 bg-opacity-20 border border-blue-400 dark:border-blue-600 rounded-lg p-3 mb-4">
+                                    <p class="text-blue-800 dark:text-blue-300 text-sm mb-1"><i class="bi bi-terminal mr-2"></i>Server setup required for full experience</p>
+                                    <p class="text-blue-800 dark:text-blue-300 text-sm mb-0"><i class="bi bi-code-square mr-2"></i>cd server && npm install && node index.js</p>
                                 </div>
                                 <div class="text-center">
-                                    <a href="https://mikevdveer.github.io/p03-project-smick/public/" class="btn btn-primary">
-                                        <i class="bi bi-link-45deg me-2"></i>Visit Project
+                                    <a href="https://mikevdveer.github.io/p03-project-smick/public/" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="bi bi-link-45deg mr-2"></i>Visit Project
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
-                <div class="row" data-aos="fade-bottom">
-                    <div class="col-12">
-                        <h3 class="text-primary border-bottom border-3 border-primary pb-2 mb-4">Projects - Year 2</h3>
+                <div class="mb-12" data-aos="fade-bottom">
+                    <div class="mb-8">
+                        <h3 class="text-blue-400 text-2xl font-bold border-b-2 border-blue-400 pb-2 mb-6">Projects - Year 2</h3>
                     </div>
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <img src="assets/Netfixed Database Project.png" alt="Netfixed Database Project" class="card-img-top" style="height: 200px; object-fit: cover;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-danger">Advanced</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <img src="assets/Netfixed Database Project.png" alt="Netfixed Database Project" class="w-full h-48 object-cover rounded-t-xl">
+                                <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium">Advanced</span>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Netfixed Database Project</h5>
-                                <p class="text-muted small text-center mb-3">Year 2</p>
-                                <p class="card-text flex-grow-1">A full-stack movie platform with database integration. This project showcases advanced database management and backend development skills.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-bootstrap me-1"></i>Bootstrap</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-php me-1"></i>PHP</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-database me-1"></i>SQL</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Netfixed Database Project</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Year 2</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">A full-stack movie platform with database integration. This project showcases advanced database management and backend development skills.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-bootstrap mr-1"></i>Bootstrap</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-php mr-1"></i>PHP</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-database mr-1"></i>SQL</span>
                                 </div>
-                                <div class="alert alert-info mb-3">
-                                    <p class="mb-0"><i class="bi bi-server me-2"></i>XAMPP setup required</p>
-                                    <p class="mb-0"><i class="bi bi-database-check me-2"></i>Import dbp_data.sql from assets folder</p>
+                                <div class="bg-blue-100 dark:bg-blue-900 bg-opacity-20 border border-blue-400 dark:border-blue-600 rounded-lg p-3 mb-4">
+                                    <p class="text-blue-800 dark:text-blue-300 text-sm mb-1"><i class="bi bi-server mr-2"></i>XAMPP setup required</p>
+                                    <p class="text-blue-800 dark:text-blue-300 text-sm mb-0"><i class="bi bi-database-check mr-2"></i>Import dbp_data.sql from assets folder</p>
                                 </div>
                                 <div class="text-center">
-                                    <a href="https://mikevdveer.github.io/Netfixed_Database_Project_MikevdVeer/" class="btn btn-primary">
-                                        <i class="bi bi-link-45deg me-2"></i>Visit Project
+                                    <a href="https://mikevdveer.github.io/Netfixed_Database_Project_MikevdVeer/" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="bi bi-link-45deg mr-2"></i>Visit Project
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                                    <img src="assets/pokeapi.png" alt="pokeapi image" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <div class="w-full h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center rounded-t-xl">
+                                    <img src="assets/pokeapi.png" alt="pokeapi image" class="w-full h-full object-cover rounded-t-xl">
                                 </div>
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-warning text-dark">Intermediate</span>
+                                <span class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-medium">Intermediate</span>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Pokédex</h5>
-                                <p class="text-muted small text-center mb-3">Year 2</p>
-                                <p class="card-text flex-grow-1">A comprehensive Pokédex application that displays Pokémon entries with detailed information. Features sorting by ID, name, height, and weight, plus region selection.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-cloud me-1"></i>API Integration</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-search me-1"></i>Search & Filter</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Pokédex</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Year 2</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">A comprehensive Pokédex application that displays Pokémon entries with detailed information. Features sorting by ID, name, height, and weight, plus region selection.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-cloud mr-1"></i>API Integration</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-search mr-1"></i>Search & Filter</span>
                                 </div>
-                                <div class="text-center">
-                                    <a href="https://mikevdveer.github.io/pokeapi/" target="_blank" class="btn btn-primary">
-                                        <i class="bi bi-link-45deg me-2"></i>Visit Project
+                                <div class="text-center space-y-2">
+                                    <a href="https://mikevdveer.github.io/pokeapi/" target="_blank" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors w-full justify-center">
+                                        <i class="bi bi-link-45deg mr-2"></i>Visit Project
                                     </a>
-                                    <a href="https://github.com/MikevdVeer/pokeapi.git" class="btn btn-primary">
-                                        <i class="bi bi-link-45deg me-2"></i>Code
+                                    <a href="https://github.com/MikevdVeer/pokeapi.git" class="inline-flex items-center bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors w-full justify-center">
+                                        <i class="bi bi-github mr-2"></i>View Code
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-3 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="position-relative">
-                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                                    <i class="bi bi-clock-history display-1 text-muted"></i>
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col mb-6">
+                            <div class="relative">
+                                <div class="w-full h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center rounded-t-xl">
+                                    <i class="bi bi-clock-history text-6xl text-gray-400 dark:text-gray-600"></i>
                                 </div>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title text-center mb-2">Pizza La Vita Project</h5>
-                                <p class="text-muted small text-center mb-3">Coming Soon</p>
-                                <p class="card-text flex-grow-1">A full-stack pizza ordering system with modern web technologies.</p>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-bootstrap me-1"></i>Bootstrap</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-php me-1"></i>PHP</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-database me-1"></i>SQL</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-gear me-1"></i>Symfony</span>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Pizza La Vita Project</h5>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm text-center mb-3">Coming Soon</p>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow mb-4">A full-stack pizza ordering system with modern web technologies.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-bootstrap mr-1"></i>Bootstrap</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-php mr-1"></i>PHP</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-database mr-1"></i>SQL</span>
+                                    <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-gear mr-1"></i>Symfony</span>
                                 </div>
                                 <div class="text-center mt-auto">
-                                    <button class="btn btn-primary" disabled>
-                                        <i class="bi bi-clock me-2"></i>Coming Soon
+                                    <button class="inline-flex items-center bg-gray-600 text-gray-400 px-4 py-2 rounded-lg cursor-not-allowed" disabled>
+                                        <i class="bi bi-clock mr-2"></i>Coming Soon
                                     </button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="upcomingProjects" class="py-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-blue-400 text-3xl font-bold mb-4">Upcoming Projects & Inspirations</h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg">Exploring new technologies and building innovative solutions</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="relative">
+                            <img src="assets/threejs demo.png" alt="Three.js 3D Portfolio Demo" class="w-full h-64 object-cover rounded-t-xl">
+                            <span class="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-medium">In Development</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-600 bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="bi bi-cube text-blue-400 text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-gray-900 dark:text-white text-xl font-semibold mb-1">3D Portfolio with Three.js</h3>
+                                    <span class="bg-blue-600 text-white px-2 py-1 rounded-full text-xs">In Development</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Creating an immersive 3D portfolio experience using Three.js. This project will showcase 
+                                my work in an interactive 3D environment with smooth animations and modern web technologies.
+                            </p>
+                            <div class="mb-4">
+                                <h5 class="text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Planned Features:</h5>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Interactive 3D environment</li>
+                                    <li class="flex items-center text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Project showcase in 3D space</li>
+                                    <li class="flex items-center text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Smooth camera transitions</li>
+                                    <li class="flex items-center text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Responsive design</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-cube mr-1"></i>Three.js</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-gear mr-1"></i>WebGL</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 25%"></div>
+                                </div>
+                                <small class="text-gray-600 dark:text-gray-400">Progress: 25% - Research & Planning Phase</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="relative">
+                            <img src="assets/spotify web api demo.png" alt="Spotify Web API Demo" class="w-full h-64 object-cover rounded-t-xl">
+                            <span class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">Planning</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-500 bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="bi bi-music-note-beamed text-green-400 text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-gray-900 dark:text-white text-xl font-semibold mb-1">Spotify Web API Integration</h3>
+                                    <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">Planning</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Building a music discovery and playlist management application using Spotify's Web API. 
+                                This project will demonstrate advanced API integration and modern web development practices.
+                            </p>
+                            <div class="mb-4">
+                                <h5 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Planned Features:</h5>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Music search and discovery</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Playlist creation and management</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>User authentication</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Real-time music recommendations</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-cloud mr-1"></i>Spotify API</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-bootstrap mr-1"></i>Bootstrap</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-shield-check mr-1"></i>OAuth 2.0</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-database mr-1"></i>Local Storage</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 10%"></div>
+                                </div>
+                                <small class="text-gray-600 dark:text-gray-400">Progress: 10% - API Research & Documentation</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-yellow-500 bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="bi bi-phone text-yellow-400 text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-gray-900 dark:text-white text-xl font-semibold mb-1">Mobile-First Web App</h3>
+                                    <span class="bg-yellow-500 text-black px-2 py-1 rounded-full text-xs">Ideation</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Developing a progressive web app (PWA) with mobile-first design principles. 
+                                This project will focus on creating a seamless mobile experience with offline capabilities.
+                            </p>
+                            <div class="mb-4">
+                                <h5 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Planned Features:</h5>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Progressive Web App (PWA)</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Offline functionality</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Mobile-optimized UI</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Push notifications</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-phone mr-1"></i>PWA</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-bootstrap mr-1"></i>Bootstrap</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-gear mr-1"></i>Service Workers</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-2">
+                                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 5%"></div>
+                                </div>
+                                <small class="text-gray-600 dark:text-gray-400">Progress: 5% - Concept Development</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-500 bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="bi bi-graph-up text-blue-400 text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-gray-900 dark:text-white text-xl font-semibold mb-1">Data Visualization Dashboard</h3>
+                                    <span class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Research</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                                Creating an interactive data visualization dashboard using modern charting libraries. 
+                                This project will demonstrate skills in data presentation and user interface design.
+                            </p>
+                            <div class="mb-4">
+                                <h5 class="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 uppercase tracking-wide">Planned Features:</h5>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Interactive charts and graphs</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Real-time data updates</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Customizable dashboards</li>
+                                    <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="bi bi-check-circle-fill text-green-400 mr-2"></i>Data filtering and sorting</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-graph-up mr-1"></i>Chart.js</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-bootstrap mr-1"></i>Bootstrap</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-database mr-1"></i>JSON API</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 0%"></div>
+                                </div>
+                                <small class="text-gray-600 dark:text-gray-400">Progress: 0% - Planning Phase</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <div class="text-center">
+                        <div class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 p-6 rounded-xl shadow-lg transition-colors duration-300">
+                            <h3 class="text-blue-400 text-xl font-semibold mb-6">Learning Goals & Technologies</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="flex items-center justify-center">
+                                    <i class="bi bi-check-circle-fill text-green-400 mr-2"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">Three.js & WebGL</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <i class="bi bi-check-circle-fill text-green-400 mr-2"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">Spotify Web API</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <i class="bi bi-check-circle-fill text-green-400 mr-2"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">Progressive Web Apps</span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <i class="bi bi-check-circle-fill text-green-400 mr-2"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">Data Visualization</span>
                                 </div>
                             </div>
                         </div>
@@ -544,269 +799,50 @@
                 </div>
             </div>
         </section>
-
-        <section id="upcomingProjects" class="py-5 bg-light">
-            <div class="container">
-                <div class="row mb-4">
-                    <div class="col-12 text-center">
-                        <h2 class="text-primary mb-3">Upcoming Projects & Inspirations</h2>
-                        <p class="lead text-muted">Exploring new technologies and building innovative solutions</p>
-                    </div>
-                </div>
-                
-                <div class="row g-4">
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <div class="position-relative">
-                                <img src="assets/threejs demo.png" alt="Three.js 3D Portfolio Demo" class="card-img-top" style="height: 250px; object-fit: fill; width: 100%;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-primary">In Development</span>
-                            </div>
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                                        <i class="bi bi-cube text-primary fs-3"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="h4 mb-1">3D Portfolio with Three.js</h3>
-                                        <span class="badge bg-primary">In Development</span>
-                                    </div>
-                                </div>
-                                <p class="text-muted mb-3">
-                                    Creating an immersive 3D portfolio experience using Three.js. This project will showcase 
-                                    my work in an interactive 3D environment with smooth animations and modern web technologies.
-                                </p>
-                                <div class="mb-3">
-                                    <h5 class="h6 text-muted mb-2">Planned Features:</h5>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Interactive 3D environment</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Project showcase in 3D space</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Smooth camera transitions</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Responsive design</li>
-                                    </ul>
-                                </div>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-cube me-1"></i>Three.js</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-gear me-1"></i>WebGL</span>
-                                </div>
-                                <div class="progress mb-3" style="height: 8px;">
-                                    <div class="progress-bar bg-primary" style="width: 25%"></div>
-                                </div>
-                                <small class="text-muted">Progress: 25% - Research & Planning Phase</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <div class="position-relative">
-                                <img src="assets/spotify web api demo.png" alt="Spotify Web API Demo" class="card-img-top" style="height: 250px; object-fit: fill; width: 100%;">
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-success">Planning</span>
-                            </div>
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
-                                        <i class="bi bi-music-note-beamed text-success fs-3"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="h4 mb-1">Spotify Web API Integration</h3>
-                                        <span class="badge bg-success">Planning</span>
-                                    </div>
-                                </div>
-                                <p class="text-muted mb-3">
-                                    Building a music discovery and playlist management application using Spotify's Web API. 
-                                    This project will demonstrate advanced API integration and modern web development practices.
-                                </p>
-                                <div class="mb-3">
-                                    <h5 class="h6 text-muted mb-2">Planned Features:</h5>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Music search and discovery</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Playlist creation and management</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>User authentication</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Real-time music recommendations</li>
-                                    </ul>
-                                </div>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-cloud me-1"></i>Spotify API</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-bootstrap me-1"></i>Bootstrap</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-shield-check me-1"></i>OAuth 2.0</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-database me-1"></i>Local Storage</span>
-                                </div>
-                                <div class="progress mb-3" style="height: 8px;">
-                                    <div class="progress-bar bg-success" style="width: 10%"></div>
-                                </div>
-                                <small class="text-muted">Progress: 10% - API Research & Documentation</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="bg-warning bg-opacity-10 p-3 rounded-circle me-3">
-                                        <i class="bi bi-phone text-warning fs-3"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="h4 mb-1">Mobile-First Web App</h3>
-                                        <span class="badge bg-warning text-dark">Ideation</span>
-                                    </div>
-                                </div>
-                                <p class="text-muted mb-3">
-                                    Developing a progressive web app (PWA) with mobile-first design principles. 
-                                    This project will focus on creating a seamless mobile experience with offline capabilities.
-                                </p>
-                                <div class="mb-3">
-                                    <h5 class="h6 text-muted mb-2">Planned Features:</h5>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Progressive Web App (PWA)</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Offline functionality</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobile-optimized UI</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Push notifications</li>
-                                    </ul>
-                                </div>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-phone me-1"></i>PWA</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-bootstrap me-1"></i>Bootstrap</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-gear me-1"></i>Service Workers</span>
-                                </div>
-                                <div class="progress mb-3" style="height: 8px;">
-                                    <div class="progress-bar bg-warning" style="width: 5%"></div>
-                                </div>
-                                <small class="text-muted">Progress: 5% - Concept Development</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="bg-info bg-opacity-10 p-3 rounded-circle me-3">
-                                        <i class="bi bi-graph-up text-info fs-3"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="h4 mb-1">Data Visualization Dashboard</h3>
-                                        <span class="badge bg-info">Research</span>
-                                    </div>
-                                </div>
-                                <p class="text-muted mb-3">
-                                    Creating an interactive data visualization dashboard using modern charting libraries. 
-                                    This project will demonstrate skills in data presentation and user interface design.
-                                </p>
-                                <div class="mb-3">
-                                    <h5 class="h6 text-muted mb-2">Planned Features:</h5>
-                                    <ul class="list-unstyled">
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Interactive charts and graphs</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Real-time data updates</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Customizable dashboards</li>
-                                        <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Data filtering and sorting</li>
-                                    </ul>
-                                </div>
-                                <div class="d-flex flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-light text-dark"><i class="bi bi-graph-up me-1"></i>Chart.js</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-bootstrap me-1"></i>Bootstrap</span>
-                                    <span class="badge bg-light text-dark"><i class="bi bi-database me-1"></i>JSON API</span>
-                                </div>
-                                <div class="progress mb-3" style="height: 8px;">
-                                    <div class="progress-bar bg-info" style="width: 0%"></div>
-                                </div>
-                                <small class="text-muted">Progress: 0% - Planning Phase</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5">
-                    <div class="col-12 text-center">
-                        <div class="bg-white p-4 rounded-3 shadow-sm">
-                            <h3 class="h4 mb-3 text-primary">Learning Goals & Technologies</h3>
-                            <div class="row g-3">
-                                <div class="col-md-3 col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Three.js & WebGL</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Spotify Web API</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Progressive Web Apps</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Data Visualization</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-dark text-white py-5" id="contact">
-        <div class="container">
-            <div class="row g-4" data-aos="fade-up" data-aos-duration="1000">
-                <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <div class="p-4 bg-dark bg-opacity-50 rounded-3 h-100 text-center" data-aos="fade-up" data-aos-delay="400">
-                        <h3 class="mb-4 border-bottom border-primary pb-2">Connect With Me</h3>
-                        <div class="d-flex justify-content-center gap-4">
-                            <a class="social-link" href="https://github.com/MikevdVeer" aria-label="GitHub Profile">
-                                <i class="bi bi-github"></i>
-                            </a>
-                            <a class="social-link" href="www.linkedin.com/in/mike-veer-72b65b2a9" aria-label="LinkedIn Profile">
-                                <i class="bi bi-linkedin"></i>
-                            </a>
+    <footer class="relative z-10 text-gray-900 dark:text-white py-12 transition-colors duration-300" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-duration="1000">
+                <div class="bg-white dark:bg-dark-light bg-opacity-50 rounded-xl p-6 text-center h-full transition-colors duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="mb-6 border-b-2 border-blue-400 pb-2 text-xl font-semibold text-gray-900 dark:text-white">Connect With Me</h3>
+                    <div class="flex justify-center gap-6">
+                        <a class="text-gray-700 dark:text-white text-2xl hover:text-blue-400 transition-colors" href="https://github.com/MikevdVeer" aria-label="GitHub Profile">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a class="text-gray-700 dark:text-white text-2xl hover:text-blue-400 transition-colors" href="https://www.linkedin.com/in/mike-veer-72b65b2a9" aria-label="LinkedIn Profile">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-dark-light bg-opacity-50 rounded-xl p-6 text-center h-full transition-colors duration-300" data-aos="fade-left" data-aos-delay="600">
+                    <h3 class="mb-6 border-b-2 border-blue-400 pb-2 text-xl font-semibold text-gray-900 dark:text-white">Version</h3>
+                    <div class="mb-6">
+                        <div class="text-4xl text-blue-400 font-bold mb-2">1.14.2</div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-0">Portfolio Website</p>
+                    </div>
+                    <div class="border-t border-gray-300 dark:border-gray-600 pt-4">
+                        <div class="flex justify-center items-center mb-2">
+                            <i class="bi bi-calendar-check text-blue-400 mr-2"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Last Updated: July 2025</span>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <i class="bi bi-code-square text-blue-400 mr-2"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Built with HTML5, CSS3 & JavaScript</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
-                    <div class="p-4 bg-dark bg-opacity-50 rounded-3 h-100 text-center" data-aos="fade-left" data-aos-delay="600">
-                        <h3 class="mb-4 border-bottom border-primary pb-2">Version</h3>
-                        <div class="mb-4">
-                            <div class="display-4 text-primary fw-bold mb-2">1.14.2</div>
-                            <p class="text-white-50 mb-0">Portfolio Website</p>
-                        </div>
-                        <div class="border-top border-white-25 pt-3">
-                            <div class="d-flex justify-content-center align-items-center mb-2">
-                                <i class="bi bi-calendar-check text-primary me-2"></i>
-                                <span class="text-white-50">Last Updated: July 2025</span>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <i class="bi bi-code-square text-primary me-2"></i>
-                                <span class="text-white-50">Built with HTML5, CSS3 & JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </footer>
 
-    <button class="btn btn-primary rounded-circle scroll-to-top" aria-label="Scroll to top">
+    <button class="fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 scroll-to-top hidden z-50" aria-label="Scroll to top">
         <i class="bi bi-arrow-up"></i>
     </button>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 

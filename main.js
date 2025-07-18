@@ -468,3 +468,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Add GSAP animations for main sections after DOMContentLoaded
+
+document.addEventListener('DOMContentLoaded', function() {
+    // GSAP Animations for main sections
+    if (window.gsap) {
+        // Animate About section
+        gsap.from("#about > div > div", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+        // Animate Skills section
+        gsap.from("#skills > div > div", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2,
+            delay: 0.5,
+            ease: "power2.out"
+        });
+        // Animate Projects section
+        gsap.from("#myProjects > div > div", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.15,
+            delay: 1,
+            ease: "power2.out"
+        });
+        // Animate Upcoming Projects section
+        gsap.from("#upcomingProjects > div > div", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2,
+            delay: 1.5,
+            ease: "power2.out"
+        });
+        // Animate Footer
+        gsap.from("footer > div > div", {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 2,
+            ease: "power2.out"
+        });
+    }
+});

@@ -306,168 +306,103 @@ window.addEventListener('scroll', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all project cards once
-    const allProjectCards = document.querySelectorAll('#myProjects .grid > div');
-    console.log('Found project cards:', allProjectCards.length); // Debug log
-    
-    // Test if we can find the filter buttons
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    console.log('Found filter buttons:', filterButtons.length); // Debug log
-    
-    let searchTimeout;
+// Project Search & Filter for All Projects Section
 
-    // Project Search with Animation
-    const searchInput = document.getElementById('projectSearch');
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all project cards in both Year 1 and Year 2 grids
+    const allProjectCards = document.querySelectorAll('#myProjects .grid > div[data-level]');
+
+    // Search input and filter buttons
+    const searchInput = document.getElementById('project-search');
+    const filterButtons = document.querySelectorAll('.project-filter-btn');
+
+    let activeLevel = 'All';
+    let searchTerm = '';
+
+    function filterProjects() {
+        allProjectCards.forEach(card => {
+            const title = card.querySelector('h5')?.textContent.toLowerCase() || '';
+            const level = card.getAttribute('data-level');
+            const matchesLevel = (activeLevel === 'All') || (level === activeLevel);
+            const matchesSearch = title.includes(searchTerm);
+            if (matchesLevel && matchesSearch) {
+                card.style.display = '';
+                card.classList.remove('hidden');
+                card.classList.remove('fade-in'); // reset
+                // Force reflow to restart animation
+                void card.offsetWidth;
+                card.classList.add('fade-in');
+            } else {
+                card.style.display = 'none';
+                card.classList.add('hidden');
+                card.classList.remove('fade-in');
+            }
+        });
+    }
+
     if (searchInput) {
         searchInput.addEventListener('input', function() {
-            // Add loading state to search input
-            this.style.borderColor = '#3b82f6';
-            this.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
-            
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                const searchTerm = this.value.toLowerCase();
-                
-                allProjectCards.forEach((cardWrapper, index) => {
-                    const title = cardWrapper.querySelector('h5')?.textContent.toLowerCase() || '';
-                    const description = cardWrapper.querySelector('p')?.textContent.toLowerCase() || '';
-                    const technologies = Array.from(cardWrapper.querySelectorAll('.bg-gray-200.dark\\:bg-gray-700, .bg-gray-700'))
-                        .map(badge => badge.textContent.toLowerCase())
-                        .join(' ');
-
-                    const matches = title.includes(searchTerm) || 
-                                  description.includes(searchTerm) || 
-                                  technologies.includes(searchTerm);
-
-                    // Add staggered animation delay
-                    const delay = index * 50; // 50ms delay between each card
-
-                    if (matches) {
-                        // Show matching cards with smooth animation
-                        setTimeout(() => {
-                            cardWrapper.style.display = '';
-                            cardWrapper.classList.remove('hidden');
-                            cardWrapper.style.opacity = '0';
-                            cardWrapper.style.transform = 'scale(0.9) translateY(20px)';
-                            
-                            // Animate in
-                            requestAnimationFrame(() => {
-                                cardWrapper.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                                cardWrapper.style.opacity = '1';
-                                cardWrapper.style.transform = 'scale(1) translateY(0)';
-                            });
-                        }, delay);
-                    } else {
-                        // Hide non-matching cards with smooth animation
-                        cardWrapper.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-                        cardWrapper.style.opacity = '0';
-                        cardWrapper.style.transform = 'scale(0.9) translateY(-20px)';
-                        
-                        setTimeout(() => {
-                            cardWrapper.style.display = 'none';
-                            cardWrapper.classList.add('hidden');
-                        }, 300);
-                    }
-                });
-                
-                // Reset search input styling after animation completes
-                setTimeout(() => {
-                    searchInput.style.borderColor = '';
-                    searchInput.style.boxShadow = '';
-                }, 800);
-            }, 400); // Increased delay for search
+            searchTerm = this.value.toLowerCase();
+            filterProjects();
         });
     }
 
-    // Project Filtering with Animation
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            console.log('Filter button clicked:', this.getAttribute('data-filter')); // Debug log
-            
-            // Update active button state with smooth transition
-            filterButtons.forEach(btn => {
-                btn.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('bg-transparent', 'text-gray-600', 'dark:text-gray-300');
-            });
-            this.classList.remove('bg-transparent', 'text-gray-600', 'dark:text-gray-300');
-            this.classList.add('bg-blue-600', 'text-white');
-            
-            const filterValue = this.getAttribute('data-filter');
-            console.log('Filter value:', filterValue); // Debug log
-            
-            // Add a small delay before filtering for better UX
-            setTimeout(() => {
-                // Filter with smooth animations
-                allProjectCards.forEach((cardWrapper, index) => {
-                    const badge = cardWrapper.querySelector('.absolute.top-2.right-2')?.textContent.toLowerCase() || '';
-                    console.log('Card badge:', badge); // Debug log
-                    
-                    // Add staggered animation delay
-                    const delay = index * 60; // 60ms delay between each card
-                    
-                    if (filterValue === 'all' || badge.includes(filterValue.toLowerCase())) {
-                        console.log('Showing card with badge:', badge); // Debug log
-                        // Show matching cards with smooth animation
-                        setTimeout(() => {
-                            cardWrapper.style.display = '';
-                            cardWrapper.classList.remove('hidden');
-                            cardWrapper.style.opacity = '0';
-                            cardWrapper.style.transform = 'scale(0.9) translateY(20px)';
-                            
-                            // Animate in
-                            requestAnimationFrame(() => {
-                                cardWrapper.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-                                cardWrapper.style.opacity = '1';
-                                cardWrapper.style.transform = 'scale(1) translateY(0)';
-                            });
-                        }, delay);
-                    } else {
-                        console.log('Hiding card with badge:', badge); // Debug log
-                        // Hide non-matching cards with smooth animation
-                        cardWrapper.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                        cardWrapper.style.opacity = '0';
-                        cardWrapper.style.transform = 'scale(0.9) translateY(-20px)';
-                        
-                        setTimeout(() => {
-                            cardWrapper.style.display = 'none';
-                            cardWrapper.classList.add('hidden');
-                        }, 400);
-                    }
-                });
-            }, 200); // Small delay before starting filter animation
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Update active button styling
+            filterButtons.forEach(b => b.classList.remove('ring', 'ring-2', 'ring-blue-400'));
+            this.classList.add('ring', 'ring-2', 'ring-blue-400');
+            activeLevel = this.getAttribute('data-level');
+            filterProjects();
         });
     });
 
-    // Add hover effects using Tailwind classes
-    allProjectCards.forEach(cardWrapper => {
-        // Test badge detection for each card
-        const badge = cardWrapper.querySelector('.absolute.top-2.right-2')?.textContent.toLowerCase() || '';
-        console.log('Card badge:', badge); // Debug log
-        
-        cardWrapper.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px)';
-            this.style.transition = 'all 0.3s ease';
-        });
-        
-        cardWrapper.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
+    // Optionally, set 'All' as active on load
+    const defaultBtn = document.querySelector('.project-filter-btn[data-level="All"]');
+    if (defaultBtn) defaultBtn.classList.add('ring', 'ring-2', 'ring-blue-400');
+
+    // View More/Less for project descriptions
+    document.querySelectorAll('.view-more-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const desc = btn.nextElementSibling;
+            if (desc && desc.classList.contains('project-description')) {
+                desc.classList.toggle('expanded');
+                if (desc.classList.contains('expanded')) {
+                    btn.textContent = 'Hide Details';
+                } else {
+                    btn.textContent = 'Show Details';
+                }
+            }
         });
     });
-
-    // Initialize AOS with custom settings
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100,
-            easing: 'ease-in-out',
-            disable: 'mobile' // Disable on mobile to prevent issues
-        });
-    }
 });
+
+// Add hover effects using Tailwind classes
+allProjectCards.forEach(cardWrapper => {
+    // Test badge detection for each card
+    const badge = cardWrapper.querySelector('.absolute.top-2.right-2')?.textContent.toLowerCase() || '';
+    console.log('Card badge:', badge); // Debug log
+    
+    cardWrapper.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px)';
+        this.style.transition = 'all 0.3s ease';
+    });
+    
+    cardWrapper.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
+
+// Initialize AOS with custom settings
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: 'ease-in-out',
+        disable: 'mobile' // Disable on mobile to prevent issues
+    });
+}
 
 // Add GSAP animations for main sections after DOMContentLoaded
 

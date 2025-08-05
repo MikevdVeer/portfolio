@@ -639,3 +639,78 @@ section {
 .dark .geometric-shape {
     opacity: 0.15;
 }
+
+.project-card {
+  background-color: #f1f5f9; /* Tailwind slate-100 */
+  border: 1px solid #cbd5e1; /* Tailwind slate-300 */
+  color: #0f172a; /* Tailwind slate-900 */
+  transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+  min-height: 340px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.dark .project-card {
+  background-color: #1e293b; /* Tailwind slate-800 */
+  border: 1px solid #334155; /* Tailwind slate-700 */
+  color: #fff;
+}
+
+.project-card.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#project-search:focus {
+  outline: 2.5px solid transparent;
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.15), /* fallback soft blue shadow */
+    0 0 0 3px #fff, /* white border for separation */
+    0 0 0 6px linear-gradient(90deg, #60a5fa 0%, #22d3ee 100%); /* blue-cyan gradient */
+  border-color: #3b82f6;
+  background: inherit;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.dark #project-search:focus {
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.18), /* fallback soft indigo shadow */
+    0 0 0 3px #1e293b, /* dark bg for separation */
+    0 0 0 6px linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%); /* indigo-purple gradient */
+  border-color: #6366f1;
+}
+
+.year-badge {
+  background: linear-gradient(90deg, #60a5fa 0%, #38bdf8 100%); /* blue-cyan */
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px 0 rgba(59,130,246,0.08);
+  letter-spacing: 0.03em;
+  opacity: 0.92;
+  pointer-events: none;
+}
+.dark .year-badge {
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%); /* indigo-purple */
+  color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(139,92,246,0.10);
+}
+
+.project-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.project-description.expanded {
+  max-height: 300px;
+}

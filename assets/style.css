@@ -59,18 +59,18 @@ section {
 
 /* Smooth project card animations for filtering and search */
 #myProjects .grid > div {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 1;
-    transform: scale(1) translateY(0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  visibility: visible;
 }
 
 #myProjects .grid > div.hidden {
-    opacity: 0;
-    transform: scale(0.9) translateY(-20px);
-    pointer-events: none;
-}
-
-/* Filter button animations */
+  opacity: 0;
+  transform: scale(0.85) translateY(-30px);
+  pointer-events: none;
+  visibility: hidden;
+}/* Filter button animations */
 [data-filter] {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -644,29 +644,85 @@ section {
   background-color: #f1f5f9; /* Tailwind slate-100 */
   border: 1px solid #cbd5e1; /* Tailwind slate-300 */
   color: #0f172a; /* Tailwind slate-900 */
-  transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   min-height: 340px;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
 }
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card:hover::before {
+  animation: shimmer 0.6s ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.project-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25), 0 15px 30px -15px rgba(0, 0, 0, 0.3) !important;
+  border-color: #60a5fa;
+}
+
+.project-card:active {
+  transform: translateY(-8px) scale(1.01);
+}
+
 .dark .project-card {
   background-color: #1e293b; /* Tailwind slate-800 */
   border: 1px solid #334155; /* Tailwind slate-700 */
   color: #fff;
 }
 
+.dark .project-card:hover {
+  border-color: #6366f1;
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.3), 0 15px 30px -15px rgba(0, 0, 0, 0.5) !important;
+}
+
 .project-card.fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
+  transform: translateY(30px) scale(0.95);
+  animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 @keyframes fadeInUp {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -686,6 +742,109 @@ section {
     0 0 0 3px #1e293b, /* dark bg for separation */
     0 0 0 6px linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%); /* indigo-purple gradient */
   border-color: #6366f1;
+}
+
+/* Filter Button Animations */
+.project-filter-btn {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.project-filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  z-index: 0;
+}
+
+.project-filter-btn:active::before {
+  width: 300px;
+  height: 300px;
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* Active filter button state with enhanced styling */
+.project-filter-btn.active-filter {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  transform: scale(1.08) translateY(-2px);
+  border: 2px solid #1e40af;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.dark .project-filter-btn.active-filter {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5);
+  border: 2px solid #4338ca;
+}
+
+/* Inactive filter button state */
+.project-filter-btn:not(.active-filter) {
+  background: #3b82f6;
+  transform: scale(1);
+}
+
+.project-filter-btn:not(.active-filter):hover {
+  transform: scale(1.05) translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.project-filter-btn:not(.active-filter):active {
+  transform: scale(0.98);
+}
+
+.dark .project-filter-btn:not(.active-filter) {
+  background: #3b82f6;
+}
+
+.dark .project-filter-btn:not(.active-filter):hover {
+  background: #2563eb;
+}
+
+/* Pulse glow animation for active buttons */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 12px 28px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.dark .project-filter-btn.active-filter {
+  animation: pulse-glow-dark 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-dark {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5);
+  }
+  50% {
+    box-shadow: 0 12px 28px rgba(99, 102, 241, 0.7);
+  }
 }
 
 .year-badge {

@@ -320,18 +320,26 @@ document.addEventListener('DOMContentLoaded', function() {
     let searchTerm = '';
 
     function filterProjects() {
+        let visibleIndex = 0;
+        
         allProjectCards.forEach(card => {
             const title = card.querySelector('h5')?.textContent.toLowerCase() || '';
             const level = card.getAttribute('data-level');
             const matchesLevel = (activeLevel === 'All') || (level === activeLevel);
             const matchesSearch = title.includes(searchTerm);
+            
             if (matchesLevel && matchesSearch) {
                 card.style.display = '';
                 card.classList.remove('hidden');
                 card.classList.remove('fade-in'); // reset
-                // Force reflow to restart animation
-                void card.offsetWidth;
-                card.classList.add('fade-in');
+                
+                // Stagger animation for visible cards
+                setTimeout(() => {
+                    void card.offsetWidth; // Force reflow
+                    card.classList.add('fade-in');
+                }, visibleIndex * 80); // 80ms stagger between cards
+                
+                visibleIndex++;
             } else {
                 card.style.display = 'none';
                 card.classList.add('hidden');
@@ -349,17 +357,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Update active button styling
-            filterButtons.forEach(b => b.classList.remove('ring', 'ring-2', 'ring-blue-400'));
-            this.classList.add('ring', 'ring-2', 'ring-blue-400');
-            activeLevel = this.getAttribute('data-level');
+            const clickedLevel = this.getAttribute('data-level');
+            
+            // If "All" is clicked, reset all filters to just "All"
+            if (clickedLevel === 'All') {
+                filterButtons.forEach(b => {
+                    if (b.getAttribute('data-level') === 'All') {
+                        b.classList.add('active-filter');
+                    } else {
+                        b.classList.remove('active-filter');
+                    }
+                });
+                activeLevel = 'All';
+            } else {
+                // If any other button is clicked, keep "All" active and set the clicked one
+                filterButtons.forEach(b => {
+                    const btnLevel = b.getAttribute('data-level');
+                    if (btnLevel === 'All' || btnLevel === clickedLevel) {
+                        b.classList.add('active-filter');
+                    } else {
+                        b.classList.remove('active-filter');
+                    }
+                });
+                activeLevel = clickedLevel;
+            }
+            
             filterProjects();
         });
     });
 
     // Optionally, set 'All' as active on load
     const defaultBtn = document.querySelector('.project-filter-btn[data-level="All"]');
-    if (defaultBtn) defaultBtn.classList.add('ring', 'ring-2', 'ring-blue-400');
+    if (defaultBtn) defaultBtn.classList.add('active-filter');
 
     // View More/Less for project descriptions
     document.querySelectorAll('.view-more-btn').forEach(function(btn) {

@@ -119,128 +119,232 @@
             <!-- Gradient overlay for better text readability -->
             <div class="absolute inset-0 bg-gradient-to-t  via-transparent to-black/20"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Left Column - Profile & Contact -->
-                    <div class="lg:col-span-1">
-                        <div class="bg-dark-light bg-opacity-80 backdrop-blur-sm p-6 rounded-2xl h-full border border-gray-700">
-                            <div class="text-center mb-6">
-                                <img class="rounded-full w-48 h-48 mx-auto shadow-2xl mb-4 object-cover" src="assets/Profiel foto.jpg" alt="Mike vd Veer - Professional headshot">
-                                <h1 class="text-white text-2xl font-bold mb-2">Mike vd Veer</h1>
-                                <p class="text-gray-300 mb-0">Full-Stack Developer & UI/UX Designer</p>
-                            </div>
-                            
-                            <div class="border-t border-gray-600 pt-6">
-                                <h3 class="text-white text-lg font-semibold mb-4">Contact Information</h3>
-                                <ul class="space-y-3 text-white">
-                                    <li class="flex items-center">
-                                        <i class="bi bi-envelope text-blue-400 mr-3"></i>
-                                        <a href="mailto:mikeveer@live.nl" class="text-white hover:text-blue-400 transition-colors">mikeveer@live.nl</a>
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="bi bi-geo-alt text-blue-400 mr-3"></i>
-                                        <span>The Hague, Netherlands</span>
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="bi bi-github text-blue-400 mr-3"></i>
-                                        <a href="https://github.com/MikevdVeer" class="text-white hover:text-blue-400 transition-colors" target="_blank">github.com/MikevdVeer</a>
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="bi bi-linkedin text-blue-400 mr-3"></i>
-                                        <a href="https://linkedin.com/in/mike-veer-72b65b2a9" class="text-white hover:text-blue-400 transition-colors" target="_blank">linkedin.com/in/mike-veer</a>
-                                    </li>
-                                </ul>
-                            </div>
+                <!-- Section Header with Wow Factor -->
+                <div class="mb-12 text-center relative z-10">
+                    <div class="inline-block">
+                        <div class="flex items-center justify-center gap-3 mb-2">
+                            <div class="w-12 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-sm font-bold uppercase tracking-widest">About Me</span>
+                            <div class="w-12 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                        </div>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Crafting Digital Excellence</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">More than a developer. A creator. A problem solver. A digital architect bringing visions to life.</p>
+                </div>
 
-                            <div class="border-t border-gray-600 pt-6">
-                                <h3 class="text-white text-lg font-semibold mb-4">Favorite Song</h3>
-                                <div class="space-y-3">
-                                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1QxxBUAx42J8pIFYJJR880?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Left Column - Profile & Professional Summary -->
+                    <div class="space-y-6">
+                        <!-- Profile Card -->
+                        <div class="group relative">
+                            <!-- Glow Effect -->
+                            <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                            <div class="bg-dark-light bg-opacity-95 backdrop-blur-sm p-8 rounded-3xl h-full border border-gray-700 relative">
+                                <div class="text-center mb-6">
+                                    <!-- Profile Image with Ring Effect -->
+                                    <div class="relative w-40 h-40 mx-auto mb-4">
+                                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full blur-lg opacity-50 animate-pulse"></div>
+                                        <div class="absolute inset-0 rounded-full border-2 border-transparent bg-clip-padding border-gradient-to-r from-blue-400 to-pink-400"></div>
+                                        <img class="rounded-full w-40 h-40 object-cover shadow-2xl relative z-10" src="assets/Profiel foto.jpg" alt="Mike vd Veer - Professional headshot">
+                                    </div>
+                                    <h1 class="text-white text-3xl font-black mb-2 relative">
+                                        <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Mike vd Veer</span>
+                                    </h1>
+                                    <p class="text-lg font-semibold bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3">Full-Stack Developer & UI/UX Designer</p>
+                                    <div class="mt-3 flex items-center justify-center gap-2">
+                                        <span class="flex h-2 w-2 relative">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                        </span>
+                                        <p class="text-green-400 text-sm font-semibold">Available for Work</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Quick Contact Links -->
+                                <div class="border-t border-gray-600 pt-4">
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="mailto:mikeveer@live.nl" class="group/contact flex items-center justify-center p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-pointer text-center">
+                                            <div>
+                                                <i class="bi bi-envelope text-blue-400 text-lg group-hover/contact:scale-125 transition-transform block mb-1"></i>
+                                                <p class="text-white text-xs font-semibold hover:text-blue-300">Email</p>
+                                            </div>
+                                        </a>
+                                        <a href="https://github.com/MikevdVeer" target="_blank" class="group/contact flex items-center justify-center p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-pointer text-center">
+                                            <div>
+                                                <i class="bi bi-github text-blue-400 text-lg group-hover/contact:scale-125 transition-transform block mb-1"></i>
+                                                <p class="text-white text-xs font-semibold hover:text-blue-300">GitHub</p>
+                                            </div>
+                                        </a>
+                                        <a href="https://linkedin.com/in/mike-veer-72b65b2a9" target="_blank" class="group/contact flex items-center justify-center p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-pointer text-center">
+                                            <div>
+                                                <i class="bi bi-linkedin text-blue-400 text-lg group-hover/contact:scale-125 transition-transform block mb-1"></i>
+                                                <p class="text-white text-xs font-semibold hover:text-blue-300">LinkedIn</p>
+                                            </div>
+                                        </a>
+                                        <div class="flex items-center justify-center p-2 rounded-lg text-center">
+                                            <div>
+                                                <i class="bi bi-geo-alt text-blue-400 text-lg block mb-1"></i>
+                                                <p class="text-white text-xs font-semibold">The Hague 🇳🇱</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Spotify Widget -->
+                                <div class="border-t border-gray-600 pt-4">
+                                    <h3 class="text-white text-sm font-bold mb-3 flex items-center justify-center">
+                                        <i class="bi bi-music-note-list text-blue-400 mr-2"></i>
+                                        Vibing Now
+                                    </h3>
+                                    <div class="rounded-lg overflow-hidden border border-blue-500 border-opacity-30 p-2 bg-gradient-to-br from-blue-900 via-purple-900 to-black bg-opacity-40">
+                                        <iframe data-testid="embed-iframe" style="border-radius:8px" src="https://open.spotify.com/embed/track/1QxxBUAx42J8pIFYJJR880?utm_source=generator&theme=0" width="100%" height="280" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stats Card -->
+                        <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl p-1">
+                            <div class="bg-dark rounded-2xl p-5">
+                                <div class="grid grid-cols-3 gap-3">
+                                    <div class="text-center group/stat hover:scale-110 transition-transform duration-300">
+                                        <div class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300 mb-1">15+</div>
+                                        <p class="text-white text-xs font-semibold">Projects</p>
+                                        <p class="text-gray-400 text-xs mt-0.5">Live</p>
+                                    </div>
+                                    <div class="text-center group/stat hover:scale-110 transition-transform duration-300">
+                                        <div class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 mb-1">5000+</div>
+                                        <p class="text-white text-xs font-semibold">Code Lines</p>
+                                        <p class="text-gray-400 text-xs mt-0.5">Clean</p>
+                                    </div>
+                                    <div class="text-center group/stat hover:scale-110 transition-transform duration-300">
+                                        <div class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-red-300 mb-1">100%</div>
+                                        <p class="text-white text-xs font-semibold">Passion</p>
+                                        <p class="text-gray-400 text-xs mt-0.5">Driven</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Column - Professional Info -->
-                    <div class="lg:col-span-2">
-                        <div class="bg-dark-light bg-opacity-80 backdrop-blur-sm p-6 rounded-2xl h-full border border-gray-700">
-                            <div class="space-y-6">
-                                <!-- Professional Summary -->
-                                <div>
-                                    <h3 class="text-white text-xl font-semibold mb-3">Professional Summary</h3>
-                                    <p class="text-gray-300 leading-relaxed">
-                                        Dynamic Full-Stack Developer with a strong foundation in both frontend and backend technologies. 
-                                        Specializing in creating responsive, user-friendly web applications with a focus on clean code and 
-                                        optimal performance. Experienced in modern development practices including version control, 
-                                        agile methodologies, and collaborative development.
-                                    </p>
+                    <!-- Right Column - Content Sections -->
+                    <div class="space-y-6">
+                        <!-- Professional Summary -->
+                        <div class="group relative">
+                            <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            <div class="bg-dark-light bg-opacity-95 backdrop-blur-md p-6 rounded-3xl border border-gray-700 relative">
+                                <div class="flex items-center mb-4">
+                                    <div class="h-1 w-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3"></div>
+                                    <h3 class="text-white text-xl font-black">About Me</h3>
                                 </div>
-
-                                <!-- Core Competencies -->
-                                <div>
-                                    <h3 class="text-white text-xl font-semibold mb-3">Core Competencies</h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div>
-                                            <ul class="space-y-2 text-white">
-                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Full-Stack Development</li>
-                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Responsive Web Design</li>
-                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Database Management</li>
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <ul class="space-y-2 text-white">
-                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>UI/UX Design</li>
-                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Problem Solving</li>
-                                                <li class="flex items-center"><i class="bi bi-check-circle-fill text-blue-400 mr-2"></i>Team Collaboration</li>
-                                            </ul>
-                                        </div>
+                                <p class="text-gray-300 leading-relaxed mb-4 text-sm">
+                                    Dynamic <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Full-Stack Developer</span> with a relentless passion for creating cutting-edge digital experiences. I transform complex problems into elegant solutions using modern development practices and agile innovation.
+                                </p>
+                                
+                                <!-- Unique Value Proposition -->
+                                <div class="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-lg p-0.5">
+                                    <div class="bg-dark rounded-lg p-3">
+                                        <p class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 font-bold text-sm leading-relaxed">
+                                            ✨ I craft <span class="underline">digital masterpieces</span> that inspire & transform!
+                                        </p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- Education -->
-                                <div>
-                                    <h3 class="text-white text-xl font-semibold mb-3">Education</h3>
-                                    <div class="bg-dark bg-opacity-50 border border-gray-600 rounded-xl p-4">
-                                        <h4 class="text-white text-lg font-semibold mb-2">Software Developer</h4>
-                                        <p class="text-gray-300 mb-1">Roc Mondriaan - Delft</p>
-                                        <p class="text-gray-300 mb-3">2023 - Present</p>
-                                        <div class="flex flex-wrap gap-2">
-                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Full-Stack Developer</span>
-                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Web Development</span>
-                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">UI/UX Design</span>
+                        <!-- Core Competencies -->
+                        <div class="group relative">
+                            <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-3xl blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            <div class="bg-dark-light bg-opacity-95 backdrop-blur-md p-6 rounded-3xl border border-gray-700 relative">
+                                <div class="flex items-center mb-4">
+                                    <div class="h-1 w-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3"></div>
+                                    <h3 class="text-white text-xl font-black">Core Skills</h3>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                        <div class="flex items-center">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 mr-2"></div>
+                                            <span class="text-white font-bold text-sm">Full-Stack</span>
                                         </div>
+                                        <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Frontend & Backend</p>
+                                    </div>
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                        <div class="flex items-center">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 mr-2"></div>
+                                            <span class="text-white font-bold text-sm">Responsive</span>
+                                        </div>
+                                        <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Mobile-First</p>
+                                    </div>
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                        <div class="flex items-center">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400 mr-2"></div>
+                                            <span class="text-white font-bold text-sm">Database</span>
+                                        </div>
+                                        <p class="text-gray-400 text-xs ml-3.5 mt-0.5">SQL & NoSQL</p>
+                                    </div>
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                        <div class="flex items-center">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-red-400 mr-2"></div>
+                                            <span class="text-white font-bold text-sm">UI/UX</span>
+                                        </div>
+                                        <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Design & UX</p>
+                                    </div>
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                        <div class="flex items-center">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 mr-2"></div>
+                                            <span class="text-white font-bold text-sm">Problem</span>
+                                        </div>
+                                        <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Solving</p>
+                                    </div>
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                        <div class="flex items-center">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-green-400 to-cyan-400 mr-2"></div>
+                                            <span class="text-white font-bold text-sm">Teamwork</span>
+                                        </div>
+                                        <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Agile Expert</p>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="bg-dark bg-opacity-50 border border-gray-600 rounded-xl p-4">
-                                        <h4 class="text-white text-lg font-semibold mb-2">IT Support Employee</h4>
-                                        <p class="text-gray-300 mb-1">Roc Mondriaan - Tinwerf</p>
-                                        <p class="text-gray-300 mb-3">2021 - 2023</p>
-                                        <div class="flex flex-wrap gap-2">
-                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Hardware</span>
-                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Software</span>
-                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Network</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
 
-                                <!-- Languages -->
-                                <div>
-                                    <h3 class="text-white text-xl font-semibold mb-3">Languages</h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Education & Languages Combined -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Education -->
+                            <div class="group relative">
+                                <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                <div class="relative bg-dark p-4 rounded-2xl border border-green-500 border-opacity-30">
+                                    <h4 class="text-white text-lg font-black mb-3">Software Developer</h4>
+                                    <p class="text-green-300 font-semibold text-xs mb-2">Roc Mondriaan • 2023-Present</p>
+                                    <div class="flex flex-wrap gap-1 mb-2">
+                                        <span class="bg-green-600 bg-opacity-40 text-green-200 px-2 py-0.5 rounded-full text-xs font-semibold">Full-Stack</span>
+                                        <span class="bg-green-600 bg-opacity-40 text-green-200 px-2 py-0.5 rounded-full text-xs font-semibold">Web Dev</span>
+                                    </div>
+                                    <p class="text-green-100 text-xs leading-tight">Mastering modern web technologies in real-world applications.</p>
+                                </div>
+                            </div>
+
+                            <!-- Languages -->
+                            <div class="group relative">
+                                <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                <div class="relative bg-dark p-4 rounded-2xl border border-pink-500 border-opacity-30">
+                                    <h4 class="text-white text-lg font-black mb-3">Languages</h4>
+                                    <div class="space-y-2">
                                         <div>
-                                            <div class="flex items-center mb-3">
-                                                <span class="text-white mr-3 w-16">Dutch</span>
-                                                <div class="flex-1 bg-gray-700 rounded-full h-2">
-                                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 100%"></div>
-                                                </div>
+                                            <div class="flex items-center justify-between mb-1">
+                                                <span class="text-pink-300 font-bold text-xs">Dutch</span>
+                                                <span class="text-pink-300 text-xs">Native</span>
+                                            </div>
+                                            <div class="bg-gray-700 rounded-full h-2 overflow-hidden">
+                                                <div class="bg-gradient-to-r from-pink-500 to-pink-400 h-2 rounded-full" style="width: 100%"></div>
                                             </div>
                                         </div>
                                         <div>
-                                            <div class="flex items-center mb-3">
-                                                <span class="text-white mr-3 w-16">English</span>
-                                                <div class="flex-1 bg-gray-700 rounded-full h-2">
-                                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
-                                                </div>
+                                            <div class="flex items-center justify-between mb-1">
+                                                <span class="text-purple-300 font-bold text-xs">English</span>
+                                                <span class="text-purple-300 text-xs">Fluent</span>
+                                            </div>
+                                            <div class="bg-gray-700 rounded-full h-2 overflow-hidden">
+                                                <div class="bg-gradient-to-r from-purple-500 to-blue-400 h-2 rounded-full" style="width: 90%"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -717,7 +821,7 @@
                 <div class="bg-white dark:bg-dark-light bg-opacity-50 rounded-xl p-6 text-center h-full transition-colors duration-300">
                     <h3 class="mb-6 border-b-2 border-blue-400 pb-2 text-xl font-semibold text-gray-900 dark:text-white">Version</h3>
                     <div class="mb-6">
-                        <div class="text-4xl text-blue-400 font-bold mb-2">1.17.0</div>
+                        <div class="text-4xl text-blue-400 font-bold mb-2">1.18.0</div>
                         <p class="text-gray-700 dark:text-gray-300 mb-0">Portfolio Website</p>
                     </div>
                     <div class="border-t border-gray-300 dark:border-gray-600 pt-4">

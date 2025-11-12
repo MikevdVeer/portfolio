@@ -23,6 +23,188 @@ html {
     background: #2563eb;
 }
 
+/* Slick Slider Custom Styling */
+.projects-slider {
+    position: relative;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto 80px auto;
+    padding: 0 60px;
+}
+
+.projects-slider .slick-list {
+    overflow: hidden;
+}
+
+.projects-slider .slick-slide {
+    height: auto;
+    padding: 0px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+}
+
+/* Slick Navigation Arrows */
+.projects-slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    padding: 0;
+    outline: none;
+}
+
+.projects-slider .slick-arrow:before {
+    content: none;
+}
+
+.projects-slider .slick-arrow:active {
+    transform: scale(0.95);
+}
+
+.projects-slider .slick-prev {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.projects-slider .slick-next {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.projects-slider .slick-prev.slick-disabled,
+.projects-slider .slick-next.slick-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.dark .projects-slider .slick-arrow {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Slick Dots */
+.projects-slider .slick-dots {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex !important;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.projects-slider .slick-dots li {
+    margin: 0;
+    padding: 0;
+}
+
+.projects-slider .slick-dots li button {
+    background: #cbd5e1;
+    border: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+    font-size: 0;
+}
+
+.projects-slider .slick-dots li button:hover {
+    background: #94a3b8;
+    transform: scale(1.2);
+}
+
+.projects-slider .slick-dots li.slick-active button {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    width: 36px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.dark .projects-slider .slick-dots li button {
+    background: #475569;
+}
+
+.dark .projects-slider .slick-dots li button:hover {
+    background: #64748b;
+}
+
+.dark .projects-slider .slick-dots li.slick-active button {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Responsive adjustments for arrow positions */
+@media (max-width: 1024px) {
+    .projects-slider {
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-slider {
+        padding: 0 40px;
+    }
+
+    .projects-slider .slick-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .projects-slider .slick-dots {
+        bottom: -60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-slider {
+        padding: 0 35px;
+        margin-bottom: 70px;
+    }
+
+    .projects-slider .slick-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .projects-slider .slick-dots {
+        bottom: -55px;
+        gap: 8px;
+    }
+
+    .projects-slider .slick-dots li button {
+        width: 10px;
+        height: 10px;
+    }
+
+    .projects-slider .slick-dots li.slick-active button {
+        width: 30px;
+    }
+}
+
 /* Active navigation link */
 .nav-link.active {
     color: #ffffff !important;
@@ -645,7 +827,8 @@ section {
   border: 1px solid #cbd5e1; /* Tailwind slate-300 */
   color: #0f172a; /* Tailwind slate-900 */
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  min-height: 340px;
+  min-height: 550px;
+  height: 100%;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;

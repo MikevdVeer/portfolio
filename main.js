@@ -35,6 +35,52 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Slick Slider Initialization
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit to ensure jQuery and Slick are fully loaded
+    setTimeout(function() {
+        const projectsSlider = document.querySelector('.projects-slider');
+        
+        if (projectsSlider && window.jQuery && window.jQuery.fn.slick) {
+            jQuery(projectsSlider).slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: false,
+                arrows: true,
+                dots: false,
+                draggable: true,
+                touchMove: true,
+                nextArrow: '<button class="slick-next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>',
+                prevArrow: '<button class="slick-prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>',
+                responsive: [
+                    {
+                        breakpoint: 1280,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        }
+    }, 100);
+});
+
 // Particle Animation System
 class ParticleAnimation {
     constructor(container) {
@@ -310,7 +356,7 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get all project cards in both Year 1 and Year 2 grids
-    const allProjectCards = document.querySelectorAll('#myProjects .grid > div[data-level]');
+    const allProjectCards = document.querySelectorAll('#myProjects .projects-slider > div[data-level]');
 
     // Search input and filter buttons
     const searchInput = document.getElementById('project-search');

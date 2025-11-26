@@ -70,6 +70,11 @@
                             <i class="bi bi-sun-fill hidden dark:inline text-lg"></i>
                             <div class="absolute inset-0 bg-gradient-to-r from-amber-600/0 to-amber-600/0 group-hover:from-amber-600/20 group-hover:to-red-600/20 transition-all duration-300 rounded-lg"></div>
                         </button>
+                        <button id="bg-anim-toggle" class="group relative text-gray-300 hover:text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ml-2" aria-pressed="false" aria-label="Toggle background animations">
+                            <i class="bi bi-pause-fill text-lg" id="bg-anim-pause-icon"></i>
+                            <i class="bi bi-play-fill hidden" id="bg-anim-play-icon"></i>
+                            <div class="absolute inset-0 bg-gradient-to-r from-amber-600/0 to-amber-600/0 group-hover:from-amber-600/20 group-hover:to-red-600/20 transition-all duration-300 rounded-lg"></div>
+                        </button>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -103,6 +108,12 @@
                         <i class="bi bi-sun-fill hidden dark:inline mr-2"></i>
                         <span class="dark:hidden">Dark Mode</span>
                         <span class="hidden dark:inline">Light Mode</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-red-600/20 group-hover:opacity-100 opacity-0 transition-opacity duration-300 rounded-lg"></div>
+                    </button>
+                    <button id="bg-anim-toggle-mobile" class="group relative text-gray-300 hover:text-white block px-4 py-2 rounded-lg text-base font-semibold w-full text-left transition-all duration-300 overflow-hidden" aria-pressed="false" aria-label="Toggle background animations">
+                        <i class="bi bi-pause-fill mr-2" id="bg-anim-pause-icon-mobile"></i>
+                        <i class="bi bi-play-fill hidden mr-2" id="bg-anim-play-icon-mobile"></i>
+                        <span id="bg-anim-mobile-label">Pause Animations</span>
                         <div class="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-red-600/20 group-hover:opacity-100 opacity-0 transition-opacity duration-300 rounded-lg"></div>
                     </button>
                 </div>
@@ -286,42 +297,42 @@
                                     <h3 class="text-white text-xl font-black">Core Skills</h3>
                                 </div>
                                 <div class="grid grid-cols-2 gap-3">
-                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-default">
                                         <div class="flex items-center">
                                             <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 mr-2"></div>
                                             <span class="text-white font-bold text-sm">Full-Stack</span>
                                         </div>
                                         <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Frontend & Backend</p>
                                     </div>
-                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-default">
                                         <div class="flex items-center">
                                             <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 mr-2"></div>
                                             <span class="text-white font-bold text-sm">Responsive</span>
                                         </div>
                                         <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Mobile-First</p>
                                     </div>
-                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-default">
                                         <div class="flex items-center">
                                             <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400 mr-2"></div>
                                             <span class="text-white font-bold text-sm">Database</span>
                                         </div>
                                         <p class="text-gray-400 text-xs ml-3.5 mt-0.5">SQL & NoSQL</p>
                                     </div>
-                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-default">
                                         <div class="flex items-center">
                                             <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-red-400 mr-2"></div>
                                             <span class="text-white font-bold text-sm">UI/UX</span>
                                         </div>
                                         <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Design & UX</p>
                                     </div>
-                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-default">
                                         <div class="flex items-center">
                                             <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 mr-2"></div>
                                             <span class="text-white font-bold text-sm">Problem</span>
                                         </div>
                                         <p class="text-gray-400 text-xs ml-3.5 mt-0.5">Solving</p>
                                     </div>
-                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300">
+                                    <div class="group/comp p-2 rounded-lg hover:bg-blue-600 hover:bg-opacity-20 transition-all duration-300 cursor-default">
                                         <div class="flex items-center">
                                             <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-green-400 to-cyan-400 mr-2"></div>
                                             <span class="text-white font-bold text-sm">Teamwork</span>
@@ -611,6 +622,32 @@
                             </div>
                         </div>
                     </div>
+                            <!-- Netfixed 2.0: Modernized Movie Platform (placeholder) -->
+                            <div class="project-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col mb-4 relative" data-level="Advanced" data-year="Year 2">
+                                <span class="year-badge absolute top-3 left-3 z-10">Year 2</span>
+                                <div class="relative">
+                                    <img src="assets/Netfixed 2.0.png" alt="Netfixed 2.0" class="w-full h-48 object-cover rounded-t-xl">
+                                    <span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium">Advanced</span>
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Netfixed 2.0</h5>
+                                    <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                                        <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                        <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                        <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                                        <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-php mr-1"></i>PHP</span>
+                                    </div>
+                                    <button class="view-more-btn text-blue-600 dark:text-blue-400 text-xs font-semibold underline mb-2 mx-auto" type="button">Show Details</button>
+                                    <div class="project-description transition-all duration-300 ease-in-out max-h-0 overflow-hidden mb-4">
+                                        <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow">An updated version of the Netfixed movie platform featuring UI improvements and enhanced frontend functionality. Backend/database specifics are represented in the Database Project entry.</p>
+                                    </div>
+                                    <div class="text-center mt-auto space-y-2">
+                                        <button class="inline-flex items-center bg-gray-600 text-gray-400 px-4 py-2 rounded-lg cursor-not-allowed" disabled>
+                                            <i class="bi bi-link-45deg mr-2"></i>Project Disabled
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                     <!-- Pokédex: Red/Yellow theme -->
                     <div class="project-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col mb-4 relative" data-level="Intermediate" data-year="Year 2">
                         <span class="year-badge absolute top-3 left-3 z-10">Year 2</span>
@@ -668,6 +705,83 @@
                                 <button class="inline-flex items-center bg-gray-600 text-gray-400 px-4 py-2 rounded-lg cursor-not-allowed w-full justify-center" disabled>
                                     <i class="bi bi-link-45deg mr-2"></i>Project Private
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Smick: Personal Project (with link) -->
+                    <div class="project-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col mb-4 relative" data-level="Intermediate" data-year="Year 2">
+                        <span class="year-badge absolute top-3 left-3 z-10">Year 2</span>
+                        <div class="relative">
+                            <img src="assets/Smick.png" alt="Smick" class="w-full h-48 object-cover rounded-t-xl">
+                            <span class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-medium">Intermediate</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Smick</h5>
+                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                            </div>
+                            <button class="view-more-btn text-blue-600 dark:text-blue-400 text-xs font-semibold underline mb-2 mx-auto" type="button">Show Details</button>
+                            <div class="project-description transition-all duration-300 ease-in-out max-h-0 overflow-hidden mb-4">
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow">A compact project showcasing frontend interactions and animations. Demonstrates responsive layout and interactive UI components.</p>
+                            </div>
+                            <div class="text-center mt-auto space-y-2">
+                                <a href="https://mikevdveer.github.io/Smick/" target="_blank" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                    <i class="bi bi-link-45deg mr-2"></i>Visit Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spotify Web API Demo: Placeholder (no links) -->
+                    <div class="project-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col mb-4 relative" data-level="Intermediate" data-year="Year 2">
+                        <span class="year-badge absolute top-3 left-3 z-10">Year 2</span>
+                        <div class="relative">
+                            <img src="assets/spotify web api demo.png" alt="Spotify Web API Demo" class="w-full h-48 object-cover rounded-t-xl">
+                            <span class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-medium">Intermediate</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">Spotify Web API Demo</h5>
+                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                            </div>
+                            <button class="view-more-btn text-blue-600 dark:text-blue-400 text-xs font-semibold underline mb-2 mx-auto" type="button">Show Details</button>
+                            <div class="project-description transition-all duration-300 ease-in-out max-h-0 overflow-hidden mb-4">
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow">Demo integrating the Spotify Web API. Authentication and playback features may require live credentials — project is presented as a placeholder here.</p>
+                            </div>
+                            <div class="text-center mt-auto space-y-2">
+                                <button class="inline-flex items-center bg-gray-600 text-gray-400 px-4 py-2 rounded-lg cursor-not-allowed" disabled>
+                                    <i class="bi bi-link-45deg mr-2"></i>Project Disabled
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MCSA Market: New project card (placeholder) -->
+                    <div class="project-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col mb-4 relative" data-level="Intermediate" data-year="Year 2">
+                        <span class="year-badge absolute top-3 left-3 z-10">Year 2</span>
+                        <div class="relative">
+                            <img src="assets/MCSA Market.png" alt="MCSA Market screenshot" class="w-full h-48 object-cover rounded-t-xl">
+                            <span class="absolute top-2 right-2 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-medium">Intermediate</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h5 class="text-gray-900 dark:text-white text-lg font-semibold text-center mb-2">MCSA Market</h5>
+                            <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-html mr-1"></i>HTML5</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-css mr-1"></i>CSS3</span>
+                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-2 py-1 rounded-full text-xs"><i class="bi bi-filetype-js mr-1"></i>JavaScript</span>
+                            </div>
+                            <button class="view-more-btn text-blue-600 dark:text-blue-400 text-xs font-semibold underline mb-2 mx-auto" type="button">Show Details</button>
+                            <div class="project-description transition-all duration-300 ease-in-out max-h-0 overflow-hidden mb-4">
+                                <p class="text-gray-700 dark:text-gray-300 text-sm flex-grow">MCSA Market — a Symfony-based webshop. Visit the live demo for a full preview.</p>
+                            </div>
+                            <div class="text-center mt-auto space-y-2">
+                                <a href="https://mikevdveer.github.io/MikevdVeer_ProjectX/" target="_blank" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                    <i class="bi bi-link-45deg mr-2"></i>Visit Project
+                                </a>
                             </div>
                         </div>
                     </div>

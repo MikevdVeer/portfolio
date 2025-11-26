@@ -1082,3 +1082,17 @@ section {
 .project-description.expanded {
   max-height: 300px;
 }
+
+/* When animations are paused via the UI toggle */
+.animations-paused .particle,
+.animations-paused .geometric-shape,
+.animations-paused .floating-shape {
+    animation-play-state: paused !important;
+    -webkit-animation-play-state: paused !important;
+    transition: none !important;
+}
+
+.animations-paused canvas {
+    opacity: 0.15 !important;
+    transition: opacity 0.15s linear !important;
+}

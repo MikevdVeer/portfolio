@@ -37,11 +37,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Slick Slider Initialization
 document.addEventListener('DOMContentLoaded', function() {
-    // Wait a bit to ensure jQuery and Slick are fully loaded
+    // Initialize or reinitialize the projects slider after DOM is ready and jQuery/Slick have loaded
     setTimeout(function() {
         const projectsSlider = document.querySelector('.projects-slider');
-        
-        if (projectsSlider && window.jQuery && window.jQuery.fn.slick) {
+
+        function initSlider() {
+            if (!(projectsSlider && window.jQuery && window.jQuery.fn.slick)) return;
+
+            // If already initialized, destroy first so we pick up current DOM children
+            try {
+                if (jQuery(projectsSlider).hasClass('slick-initialized')) {
+                    jQuery(projectsSlider).slick('unslick');
+                }
+            } catch (e) {
+                // ignore
+            }
+
+            // Initialize
             jQuery(projectsSlider).slick({
                 infinite: true,
                 slidesToShow: 3,
@@ -78,6 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 ]
             });
         }
+
+        // Run initialization now and once more shortly after to ensure dynamic content is included
+        initSlider();
+        setTimeout(initSlider, 300);
     }, 100);
 });
 
@@ -106,6 +122,8 @@ class ParticleAnimation {
         
         this.container.style.position = 'relative';
         this.container.appendChild(this.canvas);
+        // Expose this instance so other scripts (UI toggles) can pause/resume animations
+        try { window.particleAnimation = this; } catch (e) { /* ignore */ }
         
         this.resize();
         this.createParticles();
@@ -232,7 +250,9 @@ class ParticleAnimation {
         // Draw connections
         this.drawConnections();
         
-        this.animationId = requestAnimationFrame(() => this.animate());
+        if (!this.isPaused) {
+            this.animationId = requestAnimationFrame(() => this.animate());
+        }
     }
     
     drawConnections() {
@@ -285,13 +305,89 @@ class ParticleAnimation {
             this.canvas.parentNode.removeChild(this.canvas);
         }
     }
+
+    pause() {
+        this.isPaused = true;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+    }
+
+    resume() {
+        if (!this.isPaused) return;
+        this.isPaused = false;
+        // restart animation loop
+        this.animate();
+    }
 }
 
 // Initialize particle animation for projects section
 document.addEventListener('DOMContentLoaded', function() {
     const projectsSection = document.getElementById('myProjects');
     if (projectsSection) {
-        new ParticleAnimation(projectsSection);
+        // Store instance on window for global control
+        window.particleAnimation = new ParticleAnimation(projectsSection);
+    }
+});
+
+// Background animation toggle (pause/resume CSS animations + particle canvas)
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('bg-anim-toggle');
+    const toggleMobile = document.getElementById('bg-anim-toggle-mobile');
+
+    function setPaused(paused) {
+        if (paused) {
+            document.documentElement.classList.add('animations-paused');
+            if (window.particleAnimation && typeof window.particleAnimation.pause === 'function') {
+                window.particleAnimation.pause();
+            }
+        } else {
+            document.documentElement.classList.remove('animations-paused');
+            if (window.particleAnimation && typeof window.particleAnimation.resume === 'function') {
+                window.particleAnimation.resume();
+            }
+        }
+    }
+
+    function toggleState(button, isMobile) {
+        const pressed = button.getAttribute('aria-pressed') === 'true';
+        const newState = !pressed;
+        button.setAttribute('aria-pressed', String(newState));
+
+        // update icons
+        const pauseIcon = isMobile ? document.getElementById('bg-anim-pause-icon-mobile') : document.getElementById('bg-anim-pause-icon');
+        const playIcon = isMobile ? document.getElementById('bg-anim-play-icon-mobile') : document.getElementById('bg-anim-play-icon');
+        if (pauseIcon && playIcon) {
+            if (newState) {
+                pauseIcon.classList.add('hidden');
+                playIcon.classList.remove('hidden');
+            } else {
+                pauseIcon.classList.remove('hidden');
+                playIcon.classList.add('hidden');
+            }
+        }
+
+        // update mobile label if present
+        if (isMobile) {
+            const label = document.getElementById('bg-anim-mobile-label');
+            if (label) label.textContent = newState ? 'Resume Animations' : 'Pause Animations';
+        }
+
+        setPaused(newState);
+    }
+
+    if (toggle) {
+        // default aria-pressed is false (animations running). Clicking will pause (true)
+        toggle.addEventListener('click', function() {
+            toggleState(toggle, false);
+        });
+    }
+
+    if (toggleMobile) {
+        toggleMobile.addEventListener('click', function() {
+            toggleState(toggleMobile, true);
+        });
     }
 });
 
@@ -354,37 +450,28 @@ window.addEventListener('scroll', () => {
 
 // Project Search & Filter for All Projects Section
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all project cards in both Year 1 and Year 2 grids
+function setupProjectSearchAndFilters() {
     const allProjectCards = document.querySelectorAll('#myProjects .projects-slider > div[data-level]');
-
-    // Search input and filter buttons
     const searchInput = document.getElementById('project-search');
     const filterButtons = document.querySelectorAll('.project-filter-btn');
-
     let activeLevel = 'All';
     let searchTerm = '';
 
     function filterProjects() {
         let visibleIndex = 0;
-        
         allProjectCards.forEach(card => {
             const title = card.querySelector('h5')?.textContent.toLowerCase() || '';
             const level = card.getAttribute('data-level');
             const matchesLevel = (activeLevel === 'All') || (level === activeLevel);
             const matchesSearch = title.includes(searchTerm);
-            
             if (matchesLevel && matchesSearch) {
                 card.style.display = '';
                 card.classList.remove('hidden');
-                card.classList.remove('fade-in'); // reset
-                
-                // Stagger animation for visible cards
+                card.classList.remove('fade-in');
                 setTimeout(() => {
-                    void card.offsetWidth; // Force reflow
+                    void card.offsetWidth;
                     card.classList.add('fade-in');
-                }, visibleIndex * 80); // 80ms stagger between cards
-                
+                }, visibleIndex * 80);
                 visibleIndex++;
             } else {
                 card.style.display = 'none';
@@ -394,6 +481,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Event delegation for filter buttons
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.project-filter-btn');
+        if (btn) {
+            filterButtons.forEach(b => b.classList.remove('active-filter'));
+            btn.classList.add('active-filter');
+            activeLevel = btn.getAttribute('data-level');
+            filterProjects();
+        }
+    });
+
+    // Live search
     if (searchInput) {
         searchInput.addEventListener('input', function() {
             searchTerm = this.value.toLowerCase();
@@ -401,55 +500,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const clickedLevel = this.getAttribute('data-level');
-            
-            // If "All" is clicked, reset all filters to just "All"
-            if (clickedLevel === 'All') {
-                filterButtons.forEach(b => {
-                    if (b.getAttribute('data-level') === 'All') {
-                        b.classList.add('active-filter');
-                    } else {
-                        b.classList.remove('active-filter');
-                    }
-                });
-                activeLevel = 'All';
-            } else {
-                // If any other button is clicked, keep "All" active and set the clicked one
-                filterButtons.forEach(b => {
-                    const btnLevel = b.getAttribute('data-level');
-                    if (btnLevel === 'All' || btnLevel === clickedLevel) {
-                        b.classList.add('active-filter');
-                    } else {
-                        b.classList.remove('active-filter');
-                    }
-                });
-                activeLevel = clickedLevel;
-            }
-            
-            filterProjects();
-        });
-    });
-
-    // Optionally, set 'All' as active on load
+    // Default filter state
+    filterButtons.forEach(b => b.classList.remove('active-filter'));
     const defaultBtn = document.querySelector('.project-filter-btn[data-level="All"]');
     if (defaultBtn) defaultBtn.classList.add('active-filter');
 
-    // View More/Less for project descriptions
-    document.querySelectorAll('.view-more-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const desc = btn.nextElementSibling;
-            if (desc && desc.classList.contains('project-description')) {
-                desc.classList.toggle('expanded');
-                if (desc.classList.contains('expanded')) {
-                    btn.textContent = 'Hide Details';
-                } else {
-                    btn.textContent = 'Show Details';
-                }
-            }
-        });
-    });
+    // Run once on setup
+    filterProjects();
+}
+
+// Run setup only after Slick setup
+// Make sure to call this after Slick slider initialization, so DOM is ready
+// If possible, set a timeout or callback from Slick. As a fallback, delay execution slightly.
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(setupProjectSearchAndFilters, 600);
 });
 
 // Add hover effects using Tailwind classes

@@ -182,15 +182,17 @@ class ParticleAnimation {
         // Update and draw particles
         this.particles.forEach((particle, index) => {
             // Mouse interaction
-            const dx = this.mouse.x - particle.x;
-            const dy = this.mouse.y - particle.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            if (distance < this.mouse.radius && this.mouse.x !== 0) {
-                const force = (this.mouse.radius - distance) / this.mouse.radius;
-                const angle = Math.atan2(dy, dx);
-                particle.vx -= Math.cos(angle) * force * 0.5;
-                particle.vy -= Math.sin(angle) * force * 0.5;
+            if (this.mouse && particle && typeof particle.x === 'number' && typeof particle.y === 'number') {
+                const dx = this.mouse.x - particle.x;
+                const dy = this.mouse.y - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < this.mouse.radius && this.mouse.x !== 0) {
+                    const force = (this.mouse.radius - distance) / this.mouse.radius;
+                    const angle = Math.atan2(dy, dx);
+                    particle.vx -= Math.cos(angle) * force * 0.5;
+                    particle.vy -= Math.sin(angle) * force * 0.5;
+                }
             }
             
             // Update position
@@ -408,20 +410,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // Scroll to Top Button
 const scrollToTopButton = document.querySelector('.scroll-to-top');
 
-window.addEventListener('scroll', () => {
+if (scrollToTopButton) {
+  window.addEventListener('scroll', () => {
     if (window.pageYOffset > 300) {
-        scrollToTopButton.style.display = 'block';
+      scrollToTopButton.style.display = 'block';
     } else {
-        scrollToTopButton.style.display = 'none';
+      scrollToTopButton.style.display = 'none';
     }
-});
+  });
 
-scrollToTopButton.addEventListener('click', () => {
+  scrollToTopButton.addEventListener('click', () => {
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      top: 0,
+      behavior: 'smooth'
     });
-});
+  });
+}
 
 // Active Navigation Link
 const sections = document.querySelectorAll('section[id]');
@@ -451,19 +455,37 @@ window.addEventListener('scroll', () => {
 // Project Search & Filter for All Projects Section
 
 function setupProjectSearchAndFilters() {
-    const allProjectCards = document.querySelectorAll('#myProjects .projects-slider > div[data-level]');
+    // UPDATED: Match all descendants (not just direct children)
+    const allProjectCards = document.querySelectorAll('#myProjects .projects-slider [data-level]');
     const searchInput = document.getElementById('project-search');
     const filterButtons = document.querySelectorAll('.project-filter-btn');
     let activeLevel = 'All';
     let searchTerm = '';
+
+    // --- Move hover effects here so NodeList is defined ---
+    allProjectCards.forEach(cardWrapper => {
+        // Test badge detection for each card
+        const badge = cardWrapper.querySelector('.absolute.top-2.right-2')?.textContent.toLowerCase() || '';
+        // console.log('Card badge:', badge); // Uncomment if still debugging
+        cardWrapper.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+            this.style.transition = 'all 0.3s ease';
+        });
+        cardWrapper.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    // --- End move ---
 
     function filterProjects() {
         let visibleIndex = 0;
         allProjectCards.forEach(card => {
             const title = card.querySelector('h5')?.textContent.toLowerCase() || '';
             const level = card.getAttribute('data-level');
-            const matchesLevel = (activeLevel === 'All') || (level === activeLevel);
-            const matchesSearch = title.includes(searchTerm);
+            const matchesLevel = (activeLevel.toLowerCase() === 'all') || (level && level.toLowerCase() === activeLevel.toLowerCase());
+            // Super lenient: all typed words must appear somewhere in the title, in any order
+            const searchWords = searchTerm.split(/\s+/).filter(Boolean);
+            const matchesSearch = searchWords.every(sw => title.includes(sw));
             if (matchesLevel && matchesSearch) {
                 card.style.display = '';
                 card.classList.remove('hidden');
@@ -514,22 +536,6 @@ function setupProjectSearchAndFilters() {
 // If possible, set a timeout or callback from Slick. As a fallback, delay execution slightly.
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(setupProjectSearchAndFilters, 600);
-});
-
-// Add hover effects using Tailwind classes
-allProjectCards.forEach(cardWrapper => {
-    // Test badge detection for each card
-    const badge = cardWrapper.querySelector('.absolute.top-2.right-2')?.textContent.toLowerCase() || '';
-    console.log('Card badge:', badge); // Debug log
-    
-    cardWrapper.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-8px)';
-        this.style.transition = 'all 0.3s ease';
-    });
-    
-    cardWrapper.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
 });
 
 // Initialize AOS with custom settings

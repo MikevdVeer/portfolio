@@ -1096,3 +1096,11 @@ section {
     opacity: 0.15 !important;
     transition: opacity 0.15s linear !important;
 }
+
+.summary-center {
+    text-align: center;
+    list-style-type: none;
+}
+.summary-center::-webkit-details-marker, .summary-center::marker {
+    display: none;
+}

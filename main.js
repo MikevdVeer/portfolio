@@ -571,15 +571,6 @@ document.addEventListener('DOMContentLoaded', function() {
             delay: 0.5,
             ease: "power2.out"
         });
-        // Animate Projects section
-        gsap.from("#myProjects > div > div", {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            stagger: 0.15,
-            delay: 1,
-            ease: "power2.out"
-        });
         // Animate Upcoming Projects section
         gsap.from("#upcomingProjects > div > div", {
             opacity: 0,
@@ -598,4 +589,40 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: "power2.out"
         });
     }
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+    // 1. Run GSAP AFTER Slick initializes
+    $('.projects-slider').on('init', function() {
+        animateProjects();
+    });
+
+    function animateProjects() {
+        gsap.from(".project-card", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.12,
+            ease: "power2.out"
+        });
+    }
+
+    // 2. (Optional) Re-run after filtering
+    $('.filter-button').on("click", function () {
+        animateProjects();
+    });
+
+    // 3. Finally initialize slick
+    $('.projects-slider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: true,
+        dots: true,
+        responsive: [
+            { breakpoint: 1024, settings: { slidesToShow: 2 } },
+            { breakpoint: 640, settings: { slidesToShow: 1 } }
+        ]
+    });
+
 });

@@ -12,27 +12,29 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mike vd Veer Portfolio">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Slick Slider CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3b82f6',
-                        secondary: '#64748b',
-                        accent: '#8b5cf6',
-                        dark: '#0f172a',
-                        'dark-light': '#1e293b'
+        window.tailwind = {
+            config: {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#3b82f6',
+                            secondary: '#64748b',
+                            accent: '#8b5cf6',
+                            dark: '#0f172a',
+                            'dark-light': '#1e293b'
+                        }
                     }
                 }
             }
-        }
+        };
     </script>
     <title>Mike vd Veer - Full-Stack Developer & UI/UX Designer</title>
     <meta name="keywords" content="Full-Stack Developer, UI/UX Designer, Web Development, Portfolio">
@@ -44,6 +46,20 @@
     <a href="#main-content"
         class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50">Skip
         to main content</a>
+
+    <!-- Theme/Color Backgrounds -->
+    <div class="fixed inset-0 z-0">
+        <div class="continuous-gradient-bg"></div>
+        <div class="particles-container"></div>
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="geometric-shape shape-4"></div>
+        <div class="geometric-shape shape-5"></div>
+        <div class="geometric-shape shape-6"></div>
+        <div class="geometric-shape shape-7"></div>
+        <div class="geometric-shape shape-8"></div>
+    </div>
 
     <nav
         class="bg-dark/80 dark:bg-dark/95 backdrop-blur-md sticky top-0 shadow-lg z-40 transition-all duration-300 border-b border-gray-700/50">
@@ -532,7 +548,7 @@
                     Expertise</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div
-                        class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                        class="rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col mb-4 relative bg-[#f1f5f9] dark:bg-[#1e293b] border border-[#cbd5e1] dark:border-[#334155] text-[#0f172a] dark:text-white text-gray-900 border-gray-300">
                         <div class="flex items-center mb-4">
                             <i class="bi bi-code-square text-blue-400 text-2xl mr-3"></i>
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Frontend Development</h3>
@@ -571,7 +587,7 @@
                         </div>
                     </div>
                     <div
-                        class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                        class="rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col mb-4 relative bg-[#f1f5f9] dark:bg-[#1e293b] border border-[#cbd5e1] dark:border-[#334155] text-[#0f172a] dark:text-white">
                         <div class="flex items-center mb-4">
                             <i class="bi bi-server text-blue-400 text-2xl mr-3"></i>
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Backend Development</h3>
@@ -613,7 +629,7 @@
                         </div>
                     </div>
                     <div
-                        class="bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                        class="rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col mb-4 relative bg-[#f1f5f9] dark:bg-[#1e293b] border border-[#cbd5e1] dark:border-[#334155] text-[#0f172a] dark:text-white">
                         <div class="flex items-center mb-4">
                             <i class="bi bi-tools text-blue-400 text-2xl mr-3"></i>
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Tools & Others</h3>
@@ -668,7 +684,7 @@
                     <!-- Search and Filter Controls (moved to top right) -->
                     <div class="flex flex-col md:flex-row md:items-center gap-4">
                         <input id="project-search" type="text" placeholder="Search projects..."
-                            class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark-light text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors" />
+                            class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark-light text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white dark:focus:bg-dark-light transition-colors" />
                         <div class="flex gap-2 flex-wrap">
                             <button
                                 class="project-filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-blue-700 focus:outline-none"

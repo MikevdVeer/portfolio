@@ -527,11 +527,9 @@ section {
 
 /* Custom focus styles */
 .focus-ring:focus {
-    outline: none;
-    ring: 2px;
-    ring-color: #3b82f6;
-    ring-offset: 2px;
-    ring-offset-color: #0f172a;
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #0f172a;
 }
 
 /* Print styles */
